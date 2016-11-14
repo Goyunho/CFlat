@@ -28,9 +28,73 @@ unaryExpression
     :   postfixExpression
     |   '++' unaryExpression
     |   '--' unaryExpression
-    |   unaryOperator castExpression
+    |   unaryOperator 
     |   'sizeof' unaryExpression
     |   'sizeof' '(' typeName ')'
+    |	'&&' Identifier
+    ;
+
+unaryOperator
+	: '&' 
+	| '*' 
+	| '+' 
+	| '-' 
+	| '~' 
+	| '!'
+    ;
+
+assignmentExpression
+    :  unaryExpression assignmentOperator assignmentExpression
+    ;
+
+multiplicativeExpression
+    :   multiplicativeExpression '*' castExpression
+    |   multiplicativeExpression '/' castExpression
+    |   multiplicativeExpression '%' castExpression
+    ;
+
+additiveExpression
+    :   multiplicativeExpression
+    |   additiveExpression '+' multiplicativeExpression
+    |   additiveExpression '-' multiplicativeExpression
+    ;
+
+relationalExpression
+    :   relationalExpression '<' shiftExpression
+    |   relationalExpression '>' shiftExpression
+    |   relationalExpression '<=' shiftExpression
+    |   relationalExpression '>=' shiftExpression
+    ;
+
+equalityExpression
+    :   relationalExpression
+    |   equalityExpression '==' relationalExpression
+    |   equalityExpression '!=' relationalExpression
+    ;
+
+andExpression
+    :   equalityExpression
+    |   andExpression '&' equalityExpression
+    ;
+
+exclusiveOrExpression
+    :   andExpression
+    |   exclusiveOrExpression '^' andExpression
+    ;
+
+inclusiveOrExpression
+    :   exclusiveOrExpression
+    |   inclusiveOrExpression '|' exclusiveOrExpression
+    ;
+
+logicalAndExpression
+    :   inclusiveOrExpression
+    |   logicalAndExpression '&&' inclusiveOrExpression
+    ;
+
+logicalOrExpression
+    :   logicalAndExpression
+    |   logicalOrExpression '||' logicalAndExpression
     ;
 
 typeSpecifier
@@ -60,6 +124,20 @@ jumpStatement
     |   'goto' unaryExpression ';'
     ;
 
+compoundStatement
+    :   '{' blockItemList? '}'
+    ;
+
+blockItemList
+    :   blockItem
+    |   blockItemList blockItem
+    ;
+
+blockItem
+    :   declaration
+    |   statement
+    ;
+
 compilationUnit
     :   translationUnit? EOF
     ;
@@ -82,6 +160,48 @@ declarationSpecifiers
 declarationSpecifiers2
     :   declarationSpecifier+
     ;
+
+initDeclarator
+    :   declarator
+    |   declarator '=' initializer
+    ;
+
+initializer
+    :   assignmentExpression
+    |   '{' initializerList '}'
+    |   '{' initializerList ',' '}'
+    ;
+
+initializerList
+    :   designation? initializer
+    |   initializerList ',' designation? initializer
+    ;
+
+designation
+    :   designatorList '='
+    ;
+
+statement
+    :   labeledStatement
+    |   compoundStatement
+    |   expressionStatement
+    |   selectionStatement
+    |   iterationStatement
+    |   jumpStatement
+    |   ('volatile' | '__volatile__') '(' (logicalOrExpression (',' logicalOrExpression)*)? (':' (logicalOrExpression (',' logicalOrExpression)*)?)* ')' ';'
+    ;
+
+labeledStatement
+    :   Identifier ':' statement
+    |   'case' constantExpression ':' statement
+    |   'default' ':' statement
+    ;
+
+declarationList
+    :   declaration
+    |   declarationList declaration
+    ;
+
 
 
 Break : 'break';
