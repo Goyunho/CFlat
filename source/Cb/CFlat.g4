@@ -2,11 +2,32 @@ grammar CFlat;
 
 primaryExpression
     :   Identifier
-    |   Constant
     |   StringLiteral+
     |   '(' expression ')'
     |   genericSelection
-    |   '__extension__'? '(' compoundStatement ')'
+    |   '__extension__'? '(' compoundStatement ')' 
+    ;
+
+genericSelection
+    :   '_Generic' '(' assignmentExpression ',' genericAssocList ')'
+    ;
+
+genericAssocList
+    :   genericAssociation
+    |   genericAssocList ',' genericAssociation
+    ;
+
+genericAssociation
+    :   typeName ':' assignmentExpression
+    |   'default' ':' assignmentExpression
+    ;
+
+typeName
+    :   specifierQualifierList
+    ;
+
+specifierQualifierList
+    :   typeSpecifier specifierQualifierList?
     ;
 
 postfixExpression
@@ -20,9 +41,10 @@ postfixExpression
     |   '(' typeName ')' '{' initializerList ',' '}'
     ;
 
-assignmentOperator
-    :   '=' 
- 	;
+argumentExpressionList
+    :   assignmentExpression
+    |   argumentExpressionList ',' assignmentExpression
+    ;
 
 unaryExpression
     :   postfixExpression
@@ -43,14 +65,24 @@ unaryOperator
 	| '!'
     ;
 
+assignmentOperator
+    :   '=' 
+    ;
+
+expression
+    :   assignmentExpression
+    |   expression ',' assignmentExpression
+    ;
+
 assignmentExpression
     :  unaryExpression assignmentOperator assignmentExpression
     ;
 
 multiplicativeExpression
-    :   multiplicativeExpression '*' castExpression
-    |   multiplicativeExpression '/' castExpression
-    |   multiplicativeExpression '%' castExpression
+    :   unaryExpression
+    |   multiplicativeExpression '*' unaryExpression
+    |   multiplicativeExpression '/' unaryExpression
+    |   multiplicativeExpression '%' unaryExpression
     ;
 
 additiveExpression
@@ -60,10 +92,11 @@ additiveExpression
     ;
 
 relationalExpression
-    :   relationalExpression '<' shiftExpression
-    |   relationalExpression '>' shiftExpression
-    |   relationalExpression '<=' shiftExpression
-    |   relationalExpression '>=' shiftExpression
+    :   additiveExpression
+    |   relationalExpression '<' additiveExpression
+    |   relationalExpression '>' additiveExpression
+    |   relationalExpression '<=' additiveExpression
+    |   relationalExpression '>=' additiveExpression
     ;
 
 equalityExpression
@@ -107,6 +140,12 @@ typeSpecifier
     |   'double'
     |   'signed'
     |   'unsigned'
+    |   '_Bool'
+    |   typedefName
+    ;
+
+typedefName
+    :   Identifier
     ;
 
 iterationStatement
@@ -153,6 +192,74 @@ declaration
     |   staticAssertDeclaration
     ;
 
+staticAssertDeclaration
+    :   '_Static_assert' '(' constantExpression ',' StringLiteral+ ')' ';'
+    ;
+
+initDeclaratorList
+    :   initDeclarator
+    |   initDeclaratorList ',' initDeclarator
+    ;
+
+externalDeclaration
+    :   functionDefinition
+    |   declaration
+    |   ';' // stray ;
+    ;
+
+functionDefinition
+    :   declarationSpecifiers? declarator declaration? compoundStatement
+    ;
+
+declarator
+    :   directDeclarator 
+    ;
+
+directDeclarator
+    :   Identifier
+    |   '(' declarator ')'
+    |   directDeclarator '[' typeQualifierList? assignmentExpression? ']'
+    |   directDeclarator '[' 'static' typeQualifierList? assignmentExpression ']'
+    |   directDeclarator '[' typeQualifierList 'static' assignmentExpression ']'
+    |   directDeclarator '[' typeQualifierList? '*' ']'
+    |   directDeclarator '(' parameterTypeList ')'
+    |   directDeclarator '(' identifierList? ')'
+    ;
+    
+identifierList
+    :   Identifier
+    |   identifierList ',' Identifier
+    ;
+
+typeQualifierList
+    :   typeQualifier
+    |   typeQualifierList typeQualifier
+    ;
+
+typeQualifier
+    :   'const'
+    ;
+
+parameterTypeList
+    :   parameterList
+    |   parameterList ',' '...'
+    ;
+
+parameterList
+    :   parameterDeclaration
+    |   parameterList ',' parameterDeclaration
+    ;
+
+parameterDeclaration
+    :   declarationSpecifiers declarator
+    |   declarationSpecifiers2 
+    ;
+
+declarationList
+    :   declaration
+    |   declarationList declaration
+    ;
+
 declarationSpecifiers
     :   declarationSpecifier+
     ;
@@ -161,9 +268,27 @@ declarationSpecifiers2
     :   declarationSpecifier+
     ;
 
+declarationSpecifier
+    :   storageClassSpecifier
+    |   typeSpecifier
+    ;
+
+storageClassSpecifier
+    :   'typedef'
+    |   'static'
+    ;
+
 initDeclarator
     :   declarator
     |   declarator '=' initializer
+    ;
+
+constantExpression
+    :   conditionalExpression
+    ;
+
+conditionalExpression
+    :   logicalOrExpression ('?' expression ':' conditionalExpression)?
     ;
 
 initializer
@@ -181,6 +306,16 @@ designation
     :   designatorList '='
     ;
 
+designatorList
+    :   designator
+    |   designatorList designator
+    ;
+
+designator
+    :   '[' constantExpression ']'
+    |   '.' Identifier
+    ;
+
 statement
     :   labeledStatement
     |   compoundStatement
@@ -188,20 +323,23 @@ statement
     |   selectionStatement
     |   iterationStatement
     |   jumpStatement
-    |   ('volatile' | '__volatile__') '(' (logicalOrExpression (',' logicalOrExpression)*)? (':' (logicalOrExpression (',' logicalOrExpression)*)?)* ')' ';'
+    |   '(' (logicalOrExpression (',' logicalOrExpression)*)? (':' (logicalOrExpression (',' logicalOrExpression)*)?)* ')' ';'
     ;
+
+expressionStatement
+    :   expression? ';'
+    ;
+
+selectionStatement
+    :   'if' '(' expression ')' statement ('else' statement)?
+    |   'switch' '(' expression ')' statement
+    ;    
 
 labeledStatement
     :   Identifier ':' statement
     |   'case' constantExpression ':' statement
     |   'default' ':' statement
     ;
-
-declarationList
-    :   declaration
-    |   declarationList declaration
-    ;
-
 
 
 Break : 'break';
@@ -229,8 +367,6 @@ Typedef : 'typedef';
 Unsigned : 'unsigned';
 Void : 'void';
 While : 'while';
-
-
 
 LeftParen : '(';
 RightParen : ')';
@@ -270,17 +406,19 @@ NotEqual : '!=';
 
 Dot : '.';
 
-
 Identifier
-    :   nonDigit
-        (   nonDigit
+    :   Nondigit
+        (   Nondigit
         |   Digit
         )*
     ;
-
+fragment
+IdentifierNondigit
+    :   Nondigit
+    ;
 
 fragment
-Nonedigit
+Nondigit
     :   [a-zA-Z_]
     ;
 
@@ -289,19 +427,57 @@ Digit
     :   [0-9]
     ;
 
-Constant
-    :   IntegerConstant
-    |   FloatingConstant
-    |   CharacterConstant
+fragment
+NonzeroDigit
+    :   [1-9]
     ;
 
+fragment
+Sign
+    :   '+' | '-'
+    ;
 
+fragment
+DigitSequence
+    :   Digit+
+    ;
+fragment
+CCharSequence
+    :   CChar+
+    ;
 
+fragment
+CChar
+    :   ~['\\\r\n]
+    |   EscapeSequence
+    ;
 
+fragment
+EscapeSequence
+    :   SimpleEscapeSequence
+    ;
 
+fragment
+SimpleEscapeSequence
+    :   '\\' ['"?abfnrtv\\]
+    ;
 
+StringLiteral
+    :    SCharSequence? '"'
+    ;
 
+fragment
+SCharSequence
+    :   SChar+
+    ;
 
+fragment
+SChar
+    :   ~["\\\r\n]
+    |   EscapeSequence
+    |   '\\\n'   // Added line
+    |   '\\\r\n' // Added line
+    ;
 
 Whitespace
     :   [ \t]+
