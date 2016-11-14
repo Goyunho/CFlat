@@ -150,3 +150,57 @@ NotEqual : '!=';
 
 Dot : '.';
 
+
+Identifier
+    :   nonDigit
+        (   nonDigit
+        |   Digit
+        )*
+    ;
+
+
+fragment
+Nonedigit
+    :   [a-zA-Z_]
+    ;
+
+fragment
+Digit
+    :   [0-9]
+    ;
+
+Constant
+    :   IntegerConstant
+    |   FloatingConstant
+    |   CharacterConstant
+    ;
+
+
+
+
+
+
+
+
+
+Whitespace
+    :   [ \t]+
+        -> skip
+    ;
+
+Newline
+    :   (   '\r' '\n'?
+        |   '\n'
+        )
+        -> skip
+    ;
+
+BlockComment
+    :   '/*' .*? '*/'
+        -> skip
+    ;
+
+LineComment
+    :   '//' ~[\r\n]*
+        -> skip
+    ;
