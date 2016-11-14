@@ -7,7 +7,7 @@ import re
 
 # for GUI
 from PyQt5.QtCore import *
-from PyQt5.QtWidget import *
+from PyQt5.QtWidgets import *
 
 # put antlr4 runtime at the same directory and uncomment these line.
 # tied run-time with antlr generate file to avoid unexpected error due to version change.
