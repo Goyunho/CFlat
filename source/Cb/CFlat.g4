@@ -433,7 +433,7 @@ Dot : '.';
 
 Identifier
     :   Nondigit
-        (   Nondigit
+        (   IdentifierNondigit
         |   Digit
         )*
     ;
@@ -452,11 +452,78 @@ Digit
     :   [0-9]
     ;
 
+
+Constant
+    :   IntegerConstant
+    |   FloatingConstant
+    |   CharacterConstant
+    ;
+
+fragment
+IntegerConstant
+    :   DecimalConstant IntegerSuffix?
+    |   BinaryConstant
+    ;
+
+fragment
+BinaryConstant
+    :   '0' [bB] [0-1]+
+    ;
+
+fragment
+DecimalConstant
+    :   NonzeroDigit Digit*
+    ;
+    
 fragment
 NonzeroDigit
     :   [1-9]
     ;
 
+
+fragment
+IntegerSuffix
+    :   UnsignedSuffix LongSuffix?
+    |   UnsignedSuffix LongLongSuffix
+    |   LongSuffix UnsignedSuffix?
+    |   LongLongSuffix UnsignedSuffix?
+    ;
+
+fragment
+UnsignedSuffix
+    :   [uU]
+    ;
+
+fragment
+LongSuffix
+    :   [lL]
+    ;
+
+fragment
+LongLongSuffix
+    :   'll' | 'LL'
+    ;
+
+fragment
+FloatingConstant
+    :   DecimalFloatingConstant
+    ;
+
+DecimalFloatingConstant
+    :   FractionalConstant ExponentPart? FloatingSuffix?
+    |   DigitSequence ExponentPart FloatingSuffix?
+    ;
+
+fragment
+FractionalConstant
+    :   DigitSequence? '.' DigitSequence
+    |   DigitSequence '.'
+    ;
+fragment
+ExponentPart
+    :   'e' Sign? DigitSequence
+    |   'E' Sign? DigitSequence
+    ;
 fragment
 Sign
     :   '+' | '-'
@@ -466,6 +533,20 @@ fragment
 DigitSequence
     :   Digit+
     ;
+
+fragment
+FloatingSuffix
+    :   'f' | 'l' | 'F' | 'L'
+    ;
+
+fragment
+CharacterConstant
+    :   '\'' CCharSequence '\''
+    |   'L\'' CCharSequence '\''
+    |   'u\'' CCharSequence '\''
+    |   'U\'' CCharSequence '\''
+    ;
+
 fragment
 CCharSequence
     :   CChar+
@@ -545,3 +626,7 @@ LineComment
     :   '//' ~[\r\n]*
         -> skip
     ;
+
+
+
+
