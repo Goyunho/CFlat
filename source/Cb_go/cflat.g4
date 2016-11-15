@@ -11,34 +11,55 @@ brace_group
  */
 
 line
-    : action_end+ Newline
-    | action_end+
+    : action_end+ Newline?
     ;
 
 action_end
-    : ( value
+    : ( 
+        Value
+//        | Initialisation
       ) Semi
     ;
+/*
+//초기화
+Initialisation
+    : Type Assignment
+    ;
+
+//대입
+Assignment
+    : valiable Assign ( value | valiable )
+    ;
+*/
+//선언
+Declaration : Type Whitespace Valiable ;
 
 //값 구분
-value
-    : v_int
-    | v_float
-    | v_string
-    | v_boolean
-    | v_void
+Value
+    : Val_int
+    | Val_float
+    | Val_string
+    | Val_boolean
+    | Val_void
+    ;
+
+Type
+    : Int
+    | Float
+    | String
+    | Boolean
+    | Void
     ;
 
 //변수명
-valiable : (Nondigit|Digit)+ ;
-
+Valiable : (Nondigit|Digit)+ ;
 
 //값/타입
-v_int : Digit+ ;
-v_float : v_int Dot v_int ;
-v_string : '"' .*? '"' ;
-v_boolean : (true|false) ;
-v_void : 'void' ;
+Val_int : Digit+ ;
+Val_float : Val_int Dot Val_int ;
+Val_string : '"' .*? '"' ;
+Val_boolean : (TRUE|FALSE) ;
+Val_void : 'void' ;
 // - 세부 요소
 Digit : [0-9] ;
 Nondigit : [a-zA-Z_] ;
@@ -63,8 +84,8 @@ Boolean : 'boolean' ;
 Void : 'void' ;
 
 //상수
-true : ('true'|'Ture'|'TRUE') ;
-false : ('false'|'False'|'FALSE') ;
+TRUE : ('true'|'Ture'|'TRUE') ;
+FALSE : ('false'|'False'|'FALSE') ;
 
 //연산자
 // - 산술
@@ -93,6 +114,7 @@ Assign : '=' ;
 Dot : '.' ;
 Colon : ':';
 Semi : ';' ;
+Coma : ',' ;
 Leftparen : '(' ;
 Rightparen : ')' ;
 Leftbracket : '[' ;
