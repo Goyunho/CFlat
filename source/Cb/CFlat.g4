@@ -1,7 +1,7 @@
 grammar CFlat;
 
 run
-    : translationUnit+
+    : translationUnit
     ;
 
 primaryExpression
