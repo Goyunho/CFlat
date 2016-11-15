@@ -279,6 +279,15 @@ declarationSpecifier
     |   functionSpecifier
     ;
 
+functionSpecifier
+    :   ('inline'
+    |   '_Noreturn'
+    |   '__inline__' 
+    |   '__stdcall')
+    |   '__declspec' '(' Identifier ')'
+    ;
+
+
 storageClassSpecifier
     :   'typedef'
     |   'static'
@@ -363,6 +372,7 @@ For : 'for';
 Goto : 'goto';
 If : 'if';
 Int : 'int';
+Inline : 'inline';
 Long : 'long';
 Return : 'return';
 Short : 'short';
@@ -373,6 +383,11 @@ Typedef : 'typedef';
 Unsigned : 'unsigned';
 Void : 'void';
 While : 'while';
+
+Bool : '_Bool';
+Generic : '_Generic';
+Noreturn : '_Noreturn';
+StaticAssert : '_Static_assert';
 
 LeftParen : '(';
 RightParen : ')';
