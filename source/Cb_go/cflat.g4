@@ -16,11 +16,13 @@ line
 
 action_end
     : ( 
-        Value
-//        | Initialisation
+        Initialisation
+        | Assignment
+        | Declaration
+        | Value
       ) Semi
     ;
-/*
+
 //초기화
 Initialisation
     : Type Assignment
@@ -28,9 +30,9 @@ Initialisation
 
 //대입
 Assignment
-    : valiable Assign ( value | valiable )
+    : Valiable Assign ( Value | Valiable )
     ;
-*/
+
 //선언
 Declaration : Type Whitespace Valiable ;
 
@@ -41,14 +43,6 @@ Value
     | Val_string
     | Val_boolean
     | Val_void
-    ;
-
-Type
-    : Int
-    | Float
-    | String
-    | Boolean
-    | Void
     ;
 
 //변수명
@@ -77,6 +71,13 @@ Else : 'else' ;
 RETURN : 'return' ;
 Switch : 'switch' ;
 // - 타입
+Type
+    : Int
+    | Float
+    | String
+    | Boolean
+    | Void
+    ;
 Int : 'int' ;
 Float : 'float' ;
 String : 'string' ;

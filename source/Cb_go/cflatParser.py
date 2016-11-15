@@ -5,22 +5,23 @@ from io import StringIO
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3@")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3B")
         buf.write("\65\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4")
         buf.write("\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3\2\5\2\30\n\2\3\2\3")
         buf.write("\2\3\3\6\3\35\n\3\r\3\16\3\36\3\3\5\3\"\n\3\3\4\3\4\3")
         buf.write("\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13")
-        buf.write("\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2-\2\27\3\2")
-        buf.write("\2\2\4\34\3\2\2\2\6#\3\2\2\2\b&\3\2\2\2\n(\3\2\2\2\f*")
-        buf.write("\3\2\2\2\16,\3\2\2\2\20.\3\2\2\2\22\60\3\2\2\2\24\62\3")
-        buf.write("\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\27\30\3\2\2\2\30\31")
-        buf.write("\3\2\2\2\31\32\7\2\2\3\32\3\3\2\2\2\33\35\5\6\4\2\34\33")
-        buf.write("\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37\3\2\2\2\37")
-        buf.write("!\3\2\2\2 \"\7>\2\2! \3\2\2\2!\"\3\2\2\2\"\5\3\2\2\2#")
-        buf.write("$\7\13\2\2$%\7\65\2\2%\7\3\2\2\2&\'\7\3\2\2\'\t\3\2\2")
-        buf.write("\2()\7\4\2\2)\13\3\2\2\2*+\7\5\2\2+\r\3\2\2\2,-\7\6\2")
-        buf.write("\2-\17\3\2\2\2./\7\7\2\2/\21\3\2\2\2\60\61\7\b\2\2\61")
-        buf.write("\23\3\2\2\2\62\63\7\t\2\2\63\25\3\2\2\2\5\27\36!")
+        buf.write("\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\3\3\2\n\r-")
+        buf.write("\2\27\3\2\2\2\4\34\3\2\2\2\6#\3\2\2\2\b&\3\2\2\2\n(\3")
+        buf.write("\2\2\2\f*\3\2\2\2\16,\3\2\2\2\20.\3\2\2\2\22\60\3\2\2")
+        buf.write("\2\24\62\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\27\30\3\2")
+        buf.write("\2\2\30\31\3\2\2\2\31\32\7\2\2\3\32\3\3\2\2\2\33\35\5")
+        buf.write("\6\4\2\34\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37")
+        buf.write("\3\2\2\2\37!\3\2\2\2 \"\7@\2\2! \3\2\2\2!\"\3\2\2\2\"")
+        buf.write("\5\3\2\2\2#$\t\2\2\2$%\7\67\2\2%\7\3\2\2\2&\'\7\3\2\2")
+        buf.write("\'\t\3\2\2\2()\7\4\2\2)\13\3\2\2\2*+\7\5\2\2+\r\3\2\2")
+        buf.write("\2,-\7\6\2\2-\17\3\2\2\2./\7\7\2\2/\21\3\2\2\2\60\61\7")
+        buf.write("\b\2\2\61\23\3\2\2\2\62\63\7\t\2\2\63\25\3\2\2\2\5\27")
+        buf.write("\36!")
         return buf.getvalue()
 
 
@@ -37,28 +38,28 @@ class cflatParser ( Parser ):
     literalNames = [ "<INVALID>", "'+'", "'++'", "'-'", "'--'", "'*'", "'/'", 
                      "'%'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "'case'", "'break'", 
-                     "'continue'", "'default'", "'for'", "'while'", "'if'", 
-                     "'else'", "'return'", "'switch'", "'int'", "'float'", 
-                     "'string'", "'boolean'", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'&'", "'&&'", "'|'", "'||'", "'^'", "'!'", 
-                     "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "'='", 
-                     "'.'", "':'", "';'", "','", "'('", "')'", "'['", "']'", 
-                     "'{'", "'}'" ]
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "'case'", "'break'", "'continue'", "'default'", "'for'", 
+                     "'while'", "'if'", "'else'", "'return'", "'switch'", 
+                     "<INVALID>", "'int'", "'float'", "'string'", "'boolean'", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "'&'", "'&&'", 
+                     "'|'", "'||'", "'^'", "'!'", "'=='", "'!='", "'<'", 
+                     "'<='", "'>'", "'>='", "'='", "'.'", "':'", "';'", 
+                     "','", "'('", "')'", "'['", "']'", "'{'", "'}'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "Declaration", "Value", "Type", "Valiable", "Val_int", 
-                      "Val_float", "Val_string", "Val_boolean", "Val_void", 
-                      "Digit", "Nondigit", "Case", "Break", "Continue", 
-                      "Default", "For", "While", "If", "Else", "RETURN", 
-                      "Switch", "Int", "Float", "String", "Boolean", "Void", 
-                      "TRUE", "FALSE", "And", "Andand", "Or", "Oror", "Caret", 
-                      "Not", "Equal", "Notequal", "Less", "Lessequal", "Greater", 
-                      "Greaterequal", "Assign", "Dot", "Colon", "Semi", 
-                      "Coma", "Leftparen", "Rightparen", "Leftbracket", 
-                      "Rightbracket", "Leftbrace", "Rightbrace", "Whitespace", 
-                      "Newline", "Block_comment", "Line_comment" ]
+                      "Initialisation", "Assignment", "Declaration", "Value", 
+                      "Valiable", "Val_int", "Val_float", "Val_string", 
+                      "Val_boolean", "Val_void", "Digit", "Nondigit", "Case", 
+                      "Break", "Continue", "Default", "For", "While", "If", 
+                      "Else", "RETURN", "Switch", "Type", "Int", "Float", 
+                      "String", "Boolean", "Void", "TRUE", "FALSE", "And", 
+                      "Andand", "Or", "Oror", "Caret", "Not", "Equal", "Notequal", 
+                      "Less", "Lessequal", "Greater", "Greaterequal", "Assign", 
+                      "Dot", "Colon", "Semi", "Coma", "Leftparen", "Rightparen", 
+                      "Leftbracket", "Rightbracket", "Leftbrace", "Rightbrace", 
+                      "Whitespace", "Newline", "Block_comment", "Line_comment" ]
 
     RULE_run = 0
     RULE_line = 1
@@ -82,61 +83,63 @@ class cflatParser ( Parser ):
     T__4=5
     T__5=6
     T__6=7
-    Declaration=8
-    Value=9
-    Type=10
-    Valiable=11
-    Val_int=12
-    Val_float=13
-    Val_string=14
-    Val_boolean=15
-    Val_void=16
-    Digit=17
-    Nondigit=18
-    Case=19
-    Break=20
-    Continue=21
-    Default=22
-    For=23
-    While=24
-    If=25
-    Else=26
-    RETURN=27
-    Switch=28
-    Int=29
-    Float=30
-    String=31
-    Boolean=32
-    Void=33
-    TRUE=34
-    FALSE=35
-    And=36
-    Andand=37
-    Or=38
-    Oror=39
-    Caret=40
-    Not=41
-    Equal=42
-    Notequal=43
-    Less=44
-    Lessequal=45
-    Greater=46
-    Greaterequal=47
-    Assign=48
-    Dot=49
-    Colon=50
-    Semi=51
-    Coma=52
-    Leftparen=53
-    Rightparen=54
-    Leftbracket=55
-    Rightbracket=56
-    Leftbrace=57
-    Rightbrace=58
-    Whitespace=59
-    Newline=60
-    Block_comment=61
-    Line_comment=62
+    Initialisation=8
+    Assignment=9
+    Declaration=10
+    Value=11
+    Valiable=12
+    Val_int=13
+    Val_float=14
+    Val_string=15
+    Val_boolean=16
+    Val_void=17
+    Digit=18
+    Nondigit=19
+    Case=20
+    Break=21
+    Continue=22
+    Default=23
+    For=24
+    While=25
+    If=26
+    Else=27
+    RETURN=28
+    Switch=29
+    Type=30
+    Int=31
+    Float=32
+    String=33
+    Boolean=34
+    Void=35
+    TRUE=36
+    FALSE=37
+    And=38
+    Andand=39
+    Or=40
+    Oror=41
+    Caret=42
+    Not=43
+    Equal=44
+    Notequal=45
+    Less=46
+    Lessequal=47
+    Greater=48
+    Greaterequal=49
+    Assign=50
+    Dot=51
+    Colon=52
+    Semi=53
+    Coma=54
+    Leftparen=55
+    Rightparen=56
+    Leftbracket=57
+    Rightbracket=58
+    Leftbrace=59
+    Rightbrace=60
+    Whitespace=61
+    Newline=62
+    Block_comment=63
+    Line_comment=64
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -182,7 +185,7 @@ class cflatParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 21
             _la = self._input.LA(1)
-            if _la==cflatParser.Value:
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value))) != 0):
                 self.state = 20
                 self.line()
 
@@ -243,7 +246,7 @@ class cflatParser ( Parser ):
                 self.state = 28 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==cflatParser.Value):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value))) != 0)):
                     break
 
             self.state = 31
@@ -270,6 +273,15 @@ class cflatParser ( Parser ):
         def Semi(self):
             return self.getToken(cflatParser.Semi, 0)
 
+        def Initialisation(self):
+            return self.getToken(cflatParser.Initialisation, 0)
+
+        def Assignment(self):
+            return self.getToken(cflatParser.Assignment, 0)
+
+        def Declaration(self):
+            return self.getToken(cflatParser.Declaration, 0)
+
         def Value(self):
             return self.getToken(cflatParser.Value, 0)
 
@@ -291,10 +303,15 @@ class cflatParser ( Parser ):
 
         localctx = cflatParser.Action_endContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_action_end)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 33
-            self.match(cflatParser.Value)
+            _la = self._input.LA(1)
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value))) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self.consume()
             self.state = 34
             self.match(cflatParser.Semi)
         except RecognitionException as re:
