@@ -35,6 +35,24 @@ class cflatListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by cflatParser#actions.
+    def enterActions(self, ctx:cflatParser.ActionsContext):
+        pass
+
+    # Exit a parse tree produced by cflatParser#actions.
+    def exitActions(self, ctx:cflatParser.ActionsContext):
+        pass
+
+
+    # Enter a parse tree produced by cflatParser#action.
+    def enterAction(self, ctx:cflatParser.ActionContext):
+        pass
+
+    # Exit a parse tree produced by cflatParser#action.
+    def exitAction(self, ctx:cflatParser.ActionContext):
+        pass
+
+
     # Enter a parse tree produced by cflatParser#increase.
     def enterIncrease(self, ctx:cflatParser.IncreaseContext):
         pass

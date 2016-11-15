@@ -1,27 +1,36 @@
 grammar cflat;
 
+//File 전체
 run
     : line? EOF
     ;
+
 /*
 //영역(그룹)
-brace_group
-    : leftbrace
+Brace_group
+    : Leftbrace Line* Rightbrace
     ;
  */
-
+//한줄 끝
 line
     : action_end+ Newline?
     ;
 
+//액션의 끝;
 action_end
-    : ( 
-        Initialisation
-        | Assignment
-        | Declaration
-        | Value
-        | Calculator
-      ) Semi
+    : actions Semi
+    ;
+
+actions
+    : action (Coma action)*
+    ;
+
+action
+    : Initialisation
+    | Assignment
+    | Declaration
+    | Value
+    | Calculator
     ;
 
 //초기화
@@ -149,21 +158,17 @@ Leftbrace : '{' ;
 Rightbrace : '}' ;
 
 //스킵영역
-
 Whitespace
     : [ \t]+ -> skip
     ;
-
 
 Newline
     : [\r\n]+ -> skip
     ;
 
-
 Block_comment
     : '/*' .*? '*/' -> skip
     ;
-
 
 Line_comment
     : '//' ~[\r\n]* -> skip
