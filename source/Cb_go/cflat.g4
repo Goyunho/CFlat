@@ -10,16 +10,27 @@ frame
     : (line|brace_group)+
     ;
 
-//조건문
+//제어문
+// - 반복문
 iterationStatement
     :   'while' '(' Calculator_logic ')' brace_group
     |   'do' brace_group 'while' '(' Calculator_logic ')' ';'
     |   'for' '(' (Calculator_logic|Assignment)? ';' Calculator_logic? ';' (Calculator_logic|Assignment)? ')' brace_group
     ;
+// - 조건문
+selectionStatement
+    :   'if' '(' Calculator_logic ')' brace_group ('else' brace_group)?
+    |   'switch' '(' Calculator_logic ')' brace_group
+    ;
+// - - switch 그룹
+switch_group
+    : Case value Colon line* Break?
+    : Default Colon line* Break?
 
 //영역(그룹)
 brace_group
     : Leftbrace (line|brace_group)* Rightbrace
+    | line
     ;
 
 //한줄 끝
