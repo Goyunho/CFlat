@@ -1,5 +1,9 @@
 grammar CFlat;
 
+run
+    : translationUnit+
+    ;
+
 primaryExpression
     :   Identifier
     |   StringLiteral+
@@ -173,8 +177,8 @@ blockItemList
     ;
 
 blockItem
-    :   declaration
-    |   statement
+    :   declaration Newline
+    |   statement Newline
     ;
 
 compilationUnit
