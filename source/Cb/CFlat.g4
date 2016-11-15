@@ -10,6 +10,8 @@ primaryExpression
     |   '(' expression ')'
     |   genericSelection
     |   '__extension__'? '(' compoundStatement ')' 
+    |   '__builtin_va_arg' '(' unaryExpression ',' typeName ')'
+    |   '__builtin_offsetof' '(' typeName ',' unaryExpression ')'
     ;
 
 genericSelection
@@ -43,6 +45,8 @@ postfixExpression
     |   postfixExpression '--'
     |   '(' typeName ')' '{' initializerList '}'
     |   '(' typeName ')' '{' initializerList ',' '}'
+    |   '__extension__' '(' typeName ')' '{' initializerList '}'
+    |   '__extension__' '(' typeName ')' '{' initializerList ',' '}'
     ;
 
 argumentExpressionList
@@ -54,7 +58,7 @@ unaryExpression
     :   postfixExpression
     |   '++' unaryExpression
     |   '--' unaryExpression
-    |   unaryOperator 
+    |   unaryOperator unaryExpression
     |   'sizeof' unaryExpression
     |   'sizeof' '(' typeName ')'
     |	'&&' Identifier
@@ -177,8 +181,8 @@ blockItemList
     ;
 
 blockItem
-    :   declaration Newline
-    |   statement Newline
+    :   declaration 
+    |   statement 
     ;
 
 compilationUnit
@@ -498,6 +502,26 @@ SChar
     |   EscapeSequence
     |   '\\\n'   // Added line
     |   '\\\r\n' // Added line
+    ;
+
+ComplexDefine
+    :   '#' Whitespace? 'define'  ~[#]*
+        -> skip
+    ;
+
+LineAfterPreprocessing
+    :   '#line' Whitespace* ~[\r\n]*
+        -> skip
+    ;  
+
+LineDirective
+    :   '#' Whitespace? DecimalConstant Whitespace? StringLiteral ~[\r\n]*
+        -> skip
+    ;
+
+PragmaDirective
+    :   '#' Whitespace? 'pragma' Whitespace ~[\r\n]*
+        -> skip
     ;
 
 Whitespace
