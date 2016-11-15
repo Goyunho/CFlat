@@ -5,23 +5,19 @@ from io import StringIO
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3B")
-        buf.write("\65\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4")
-        buf.write("\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\3\2\5\2\30\n\2\3\2\3")
-        buf.write("\2\3\3\6\3\35\n\3\r\3\16\3\36\3\3\5\3\"\n\3\3\4\3\4\3")
-        buf.write("\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\3\13")
-        buf.write("\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\3\3\2\n\r-")
-        buf.write("\2\27\3\2\2\2\4\34\3\2\2\2\6#\3\2\2\2\b&\3\2\2\2\n(\3")
-        buf.write("\2\2\2\f*\3\2\2\2\16,\3\2\2\2\20.\3\2\2\2\22\60\3\2\2")
-        buf.write("\2\24\62\3\2\2\2\26\30\5\4\3\2\27\26\3\2\2\2\27\30\3\2")
-        buf.write("\2\2\30\31\3\2\2\2\31\32\7\2\2\3\32\3\3\2\2\2\33\35\5")
-        buf.write("\6\4\2\34\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2\2\2\36\37")
-        buf.write("\3\2\2\2\37!\3\2\2\2 \"\7@\2\2! \3\2\2\2!\"\3\2\2\2\"")
-        buf.write("\5\3\2\2\2#$\t\2\2\2$%\7\67\2\2%\7\3\2\2\2&\'\7\3\2\2")
-        buf.write("\'\t\3\2\2\2()\7\4\2\2)\13\3\2\2\2*+\7\5\2\2+\r\3\2\2")
-        buf.write("\2,-\7\6\2\2-\17\3\2\2\2./\7\7\2\2/\21\3\2\2\2\60\61\7")
-        buf.write("\b\2\2\61\23\3\2\2\2\62\63\7\t\2\2\63\25\3\2\2\2\5\27")
-        buf.write("\36!")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3H")
+        buf.write("%\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2")
+        buf.write("\5\2\20\n\2\3\2\3\2\3\3\6\3\25\n\3\r\3\16\3\26\3\3\5\3")
+        buf.write("\32\n\3\3\4\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\7\2\2\b")
+        buf.write("\2\4\6\b\n\f\2\3\3\2\6\n!\2\17\3\2\2\2\4\24\3\2\2\2\6")
+        buf.write("\33\3\2\2\2\b\36\3\2\2\2\n \3\2\2\2\f\"\3\2\2\2\16\20")
+        buf.write("\5\4\3\2\17\16\3\2\2\2\17\20\3\2\2\2\20\21\3\2\2\2\21")
+        buf.write("\22\7\2\2\3\22\3\3\2\2\2\23\25\5\6\4\2\24\23\3\2\2\2\25")
+        buf.write("\26\3\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\31\3\2\2\2")
+        buf.write("\30\32\7F\2\2\31\30\3\2\2\2\31\32\3\2\2\2\32\5\3\2\2\2")
+        buf.write("\33\34\t\2\2\2\34\35\7=\2\2\35\7\3\2\2\2\36\37\7\3\2\2")
+        buf.write("\37\t\3\2\2\2 !\7\4\2\2!\13\3\2\2\2\"#\7\5\2\2#\r\3\2")
+        buf.write("\2\2\5\17\26\31")
         return buf.getvalue()
 
 
@@ -35,58 +31,58 @@ class cflatParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'+'", "'++'", "'-'", "'--'", "'*'", "'/'", 
-                     "'%'", "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+    literalNames = [ "<INVALID>", "'++'", "'--'", "'%'", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "'case'", "'break'", "'continue'", "'default'", "'for'", 
-                     "'while'", "'if'", "'else'", "'return'", "'switch'", 
-                     "<INVALID>", "'int'", "'float'", "'string'", "'boolean'", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "'&'", "'&&'", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'case'", "'break'", "'continue'", 
+                     "'default'", "'for'", "'while'", "'if'", "'else'", 
+                     "'return'", "'switch'", "<INVALID>", "'int'", "'float'", 
+                     "'string'", "'boolean'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "'+'", "'-'", "'*'", "'/'", "'&'", "'&&'", 
                      "'|'", "'||'", "'^'", "'!'", "'=='", "'!='", "'<'", 
-                     "'<='", "'>'", "'>='", "'='", "'.'", "':'", "';'", 
-                     "','", "'('", "')'", "'['", "']'", "'{'", "'}'" ]
+                     "'<='", "'>'", "'>='", "'<<'", "'>>'", "'='", "'.'", 
+                     "':'", "';'", "','", "'('", "')'", "'['", "']'", "'{'", 
+                     "'}'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "Initialisation", "Assignment", "Declaration", "Value", 
-                      "Valiable", "Val_int", "Val_float", "Val_string", 
-                      "Val_boolean", "Val_void", "Digit", "Nondigit", "Case", 
-                      "Break", "Continue", "Default", "For", "While", "If", 
-                      "Else", "RETURN", "Switch", "Type", "Int", "Float", 
-                      "String", "Boolean", "Void", "TRUE", "FALSE", "And", 
-                      "Andand", "Or", "Oror", "Caret", "Not", "Equal", "Notequal", 
-                      "Less", "Lessequal", "Greater", "Greaterequal", "Assign", 
-                      "Dot", "Colon", "Semi", "Coma", "Leftparen", "Rightparen", 
-                      "Leftbracket", "Rightbracket", "Leftbrace", "Rightbrace", 
-                      "Whitespace", "Newline", "Block_comment", "Line_comment" ]
+                      "Calculator", "Calculator_pmad", "Calculator_bit", 
+                      "Calculator_logic", "Valiable", "Val_int", "Val_float", 
+                      "Val_string", "Val_boolean", "Val_void", "Digit", 
+                      "Nondigit", "Case", "Break", "Continue", "Default", 
+                      "For", "While", "If", "Else", "RETURN", "Switch", 
+                      "Type", "Int", "Float", "String", "Boolean", "Void", 
+                      "TRUE", "FALSE", "Plus", "Minus", "Asterisk", "Div", 
+                      "And", "Andand", "Or", "Oror", "Caret", "Not", "Equal", 
+                      "Notequal", "Less", "Lessequal", "Greater", "Greaterequal", 
+                      "Leftshift", "Rightshift", "Assign", "Dot", "Colon", 
+                      "Semi", "Coma", "Leftparen", "Rightparen", "Leftbracket", 
+                      "Rightbracket", "Leftbrace", "Rightbrace", "Whitespace", 
+                      "Newline", "Block_comment", "Line_comment" ]
 
     RULE_run = 0
     RULE_line = 1
     RULE_action_end = 2
-    RULE_plus = 3
-    RULE_increase = 4
-    RULE_minus = 5
-    RULE_decrease = 6
-    RULE_asterisk = 7
-    RULE_div = 8
-    RULE_percent = 9
+    RULE_increase = 3
+    RULE_decrease = 4
+    RULE_percent = 5
 
-    ruleNames =  [ "run", "line", "action_end", "plus", "increase", "minus", 
-                   "decrease", "asterisk", "div", "percent" ]
+    ruleNames =  [ "run", "line", "action_end", "increase", "decrease", 
+                   "percent" ]
 
     EOF = Token.EOF
     T__0=1
     T__1=2
     T__2=3
-    T__3=4
-    T__4=5
-    T__5=6
-    T__6=7
-    Initialisation=8
-    Assignment=9
-    Declaration=10
-    Value=11
+    Initialisation=4
+    Assignment=5
+    Declaration=6
+    Value=7
+    Calculator=8
+    Calculator_pmad=9
+    Calculator_bit=10
+    Calculator_logic=11
     Valiable=12
     Val_int=13
     Val_float=14
@@ -113,33 +109,39 @@ class cflatParser ( Parser ):
     Void=35
     TRUE=36
     FALSE=37
-    And=38
-    Andand=39
-    Or=40
-    Oror=41
-    Caret=42
-    Not=43
-    Equal=44
-    Notequal=45
-    Less=46
-    Lessequal=47
-    Greater=48
-    Greaterequal=49
-    Assign=50
-    Dot=51
-    Colon=52
-    Semi=53
-    Coma=54
-    Leftparen=55
-    Rightparen=56
-    Leftbracket=57
-    Rightbracket=58
-    Leftbrace=59
-    Rightbrace=60
-    Whitespace=61
-    Newline=62
-    Block_comment=63
-    Line_comment=64
+    Plus=38
+    Minus=39
+    Asterisk=40
+    Div=41
+    And=42
+    Andand=43
+    Or=44
+    Oror=45
+    Caret=46
+    Not=47
+    Equal=48
+    Notequal=49
+    Less=50
+    Lessequal=51
+    Greater=52
+    Greaterequal=53
+    Leftshift=54
+    Rightshift=55
+    Assign=56
+    Dot=57
+    Colon=58
+    Semi=59
+    Coma=60
+    Leftparen=61
+    Rightparen=62
+    Leftbracket=63
+    Rightbracket=64
+    Leftbrace=65
+    Rightbrace=66
+    Whitespace=67
+    Newline=68
+    Block_comment=69
+    Line_comment=70
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -183,14 +185,14 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 21
+            self.state = 13
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value))) != 0):
-                self.state = 20
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value) | (1 << cflatParser.Calculator))) != 0):
+                self.state = 12
                 self.line()
 
 
-            self.state = 23
+            self.state = 15
             self.match(cflatParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -237,22 +239,22 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 26 
+            self.state = 18 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 25
+                self.state = 17
                 self.action_end()
-                self.state = 28 
+                self.state = 20 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value))) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value) | (1 << cflatParser.Calculator))) != 0)):
                     break
 
-            self.state = 31
+            self.state = 23
             _la = self._input.LA(1)
             if _la==cflatParser.Newline:
-                self.state = 30
+                self.state = 22
                 self.match(cflatParser.Newline)
 
 
@@ -285,6 +287,9 @@ class cflatParser ( Parser ):
         def Value(self):
             return self.getToken(cflatParser.Value, 0)
 
+        def Calculator(self):
+            return self.getToken(cflatParser.Calculator, 0)
+
         def getRuleIndex(self):
             return cflatParser.RULE_action_end
 
@@ -306,51 +311,14 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 33
+            self.state = 25
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value) | (1 << cflatParser.Calculator))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self.consume()
-            self.state = 34
+            self.state = 26
             self.match(cflatParser.Semi)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class PlusContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-
-        def getRuleIndex(self):
-            return cflatParser.RULE_plus
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPlus" ):
-                listener.enterPlus(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPlus" ):
-                listener.exitPlus(self)
-
-
-
-
-    def plus(self):
-
-        localctx = cflatParser.PlusContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 6, self.RULE_plus)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 36
-            self.match(cflatParser.T__0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -383,48 +351,11 @@ class cflatParser ( Parser ):
     def increase(self):
 
         localctx = cflatParser.IncreaseContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_increase)
+        self.enterRule(localctx, 6, self.RULE_increase)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 38
-            self.match(cflatParser.T__1)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class MinusContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-
-        def getRuleIndex(self):
-            return cflatParser.RULE_minus
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMinus" ):
-                listener.enterMinus(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMinus" ):
-                listener.exitMinus(self)
-
-
-
-
-    def minus(self):
-
-        localctx = cflatParser.MinusContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_minus)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 40
-            self.match(cflatParser.T__2)
+            self.state = 28
+            self.match(cflatParser.T__0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -457,85 +388,11 @@ class cflatParser ( Parser ):
     def decrease(self):
 
         localctx = cflatParser.DecreaseContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_decrease)
+        self.enterRule(localctx, 8, self.RULE_decrease)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 42
-            self.match(cflatParser.T__3)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class AsteriskContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-
-        def getRuleIndex(self):
-            return cflatParser.RULE_asterisk
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAsterisk" ):
-                listener.enterAsterisk(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAsterisk" ):
-                listener.exitAsterisk(self)
-
-
-
-
-    def asterisk(self):
-
-        localctx = cflatParser.AsteriskContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_asterisk)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 44
-            self.match(cflatParser.T__4)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-    class DivContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-
-        def getRuleIndex(self):
-            return cflatParser.RULE_div
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterDiv" ):
-                listener.enterDiv(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitDiv" ):
-                listener.exitDiv(self)
-
-
-
-
-    def div(self):
-
-        localctx = cflatParser.DivContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_div)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 46
-            self.match(cflatParser.T__5)
+            self.state = 30
+            self.match(cflatParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -568,11 +425,11 @@ class cflatParser ( Parser ):
     def percent(self):
 
         localctx = cflatParser.PercentContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_percent)
+        self.enterRule(localctx, 10, self.RULE_percent)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 48
-            self.match(cflatParser.T__6)
+            self.state = 32
+            self.match(cflatParser.T__2)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

@@ -35,15 +35,6 @@ class cflatListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by cflatParser#plus.
-    def enterPlus(self, ctx:cflatParser.PlusContext):
-        pass
-
-    # Exit a parse tree produced by cflatParser#plus.
-    def exitPlus(self, ctx:cflatParser.PlusContext):
-        pass
-
-
     # Enter a parse tree produced by cflatParser#increase.
     def enterIncrease(self, ctx:cflatParser.IncreaseContext):
         pass
@@ -53,39 +44,12 @@ class cflatListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by cflatParser#minus.
-    def enterMinus(self, ctx:cflatParser.MinusContext):
-        pass
-
-    # Exit a parse tree produced by cflatParser#minus.
-    def exitMinus(self, ctx:cflatParser.MinusContext):
-        pass
-
-
     # Enter a parse tree produced by cflatParser#decrease.
     def enterDecrease(self, ctx:cflatParser.DecreaseContext):
         pass
 
     # Exit a parse tree produced by cflatParser#decrease.
     def exitDecrease(self, ctx:cflatParser.DecreaseContext):
-        pass
-
-
-    # Enter a parse tree produced by cflatParser#asterisk.
-    def enterAsterisk(self, ctx:cflatParser.AsteriskContext):
-        pass
-
-    # Exit a parse tree produced by cflatParser#asterisk.
-    def exitAsterisk(self, ctx:cflatParser.AsteriskContext):
-        pass
-
-
-    # Enter a parse tree produced by cflatParser#div.
-    def enterDiv(self, ctx:cflatParser.DivContext):
-        pass
-
-    # Exit a parse tree produced by cflatParser#div.
-    def exitDiv(self, ctx:cflatParser.DivContext):
         pass
 
 

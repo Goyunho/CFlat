@@ -20,6 +20,7 @@ action_end
         | Assignment
         | Declaration
         | Value
+        | Calculator
       ) Semi
     ;
 
@@ -43,6 +44,28 @@ Value
     | Val_string
     | Val_boolean
     | Val_void
+    | Calculator
+    ;
+
+//연산
+Calculator
+    : Calculator_bit
+    | Calculator_logic
+    | Calculator_pmad
+    ;
+// - 사칙연산
+Calculator_pmad
+    : (Val_int|Val_float) (Plus|Minus) (Val_int|Val_float|Calculator_pmad)
+    | (Val_int|Val_float) (Asterisk|Div) (Val_int|Val_float|Calculator_pmad)
+    ;
+// - 비트연산
+Calculator_bit
+    : Val_int (And|Or|Caret) Val_int
+    ;
+// - 논리연산
+Calculator_logic
+    : (TRUE|FALSE) (Andand|Oror|Equal|Notequal|Less|Lessequal|Greater|Greaterequal) (TRUE|FALSE)
+    | Not (TRUE|FALSE)
     ;
 
 //변수명
@@ -90,12 +113,12 @@ FALSE : ('false'|'False'|'FALSE') ;
 
 //연산자
 // - 산술
-plus : '+' ;
+Plus : '+' ;
 increase : '++' ;
-minus : '-' ;
+Minus : '-' ;
 decrease : '--' ;
-asterisk : '*' ;
-div : '/' ;
+Asterisk : '*' ;
+Div : '/' ;
 percent : '%' ;
 // - 논리, 비트
 And : '&' ;
@@ -110,6 +133,8 @@ Less : '<' ;
 Lessequal : '<=' ;
 Greater : '>' ;
 Greaterequal : '>=' ;
+Leftshift : '<<' ;
+Rightshift : '>>' ;
 // - 그 외 기호
 Assign : '=' ;
 Dot : '.' ;
