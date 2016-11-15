@@ -10,6 +10,8 @@ primaryExpression
     |   '(' expression ')'
     |   genericSelection
     |   '__extension__'? '(' compoundStatement ')' 
+    |   '__builtin_va_arg' '(' unaryExpression ',' typeName ')'
+    |   '__builtin_offsetof' '(' typeName ',' unaryExpression ')'
     ;
 
 genericSelection
@@ -43,6 +45,8 @@ postfixExpression
     |   postfixExpression '--'
     |   '(' typeName ')' '{' initializerList '}'
     |   '(' typeName ')' '{' initializerList ',' '}'
+    |   '__extension__' '(' typeName ')' '{' initializerList '}'
+    |   '__extension__' '(' typeName ')' '{' initializerList ',' '}'
     ;
 
 argumentExpressionList
@@ -54,7 +58,7 @@ unaryExpression
     :   postfixExpression
     |   '++' unaryExpression
     |   '--' unaryExpression
-    |   unaryOperator 
+    |   unaryOperator unaryExpression
     |   'sizeof' unaryExpression
     |   'sizeof' '(' typeName ')'
     |	'&&' Identifier
@@ -177,8 +181,8 @@ blockItemList
     ;
 
 blockItem
-    :   declaration Newline
-    |   statement Newline
+    :   declaration 
+    |   statement 
     ;
 
 compilationUnit
@@ -282,7 +286,7 @@ declarationSpecifier
 functionSpecifier
     :   ('inline'
     |   '_Noreturn'
-    |   '__inline__' // GCC extension
+    |   '__inline__' 
     |   '__stdcall')
     |   '__declspec' '(' Identifier ')'
     ;
@@ -372,6 +376,7 @@ For : 'for';
 Goto : 'goto';
 If : 'if';
 Int : 'int';
+Inline : 'inline';
 Long : 'long';
 Return : 'return';
 Short : 'short';
@@ -382,6 +387,11 @@ Typedef : 'typedef';
 Unsigned : 'unsigned';
 Void : 'void';
 While : 'while';
+
+Bool : '_Bool';
+Generic : '_Generic';
+Noreturn : '_Noreturn';
+StaticAssert : '_Static_assert';
 
 LeftParen : '(';
 RightParen : ')';
@@ -423,7 +433,7 @@ Dot : '.';
 
 Identifier
     :   Nondigit
-        (   Nondigit
+        (   IdentifierNondigit
         |   Digit
         )*
     ;
@@ -442,11 +452,78 @@ Digit
     :   [0-9]
     ;
 
+
+Constant
+    :   IntegerConstant
+    |   FloatingConstant
+    |   CharacterConstant
+    ;
+
+fragment
+IntegerConstant
+    :   DecimalConstant IntegerSuffix?
+    |   BinaryConstant
+    ;
+
+fragment
+BinaryConstant
+    :   '0' [bB] [0-1]+
+    ;
+
+fragment
+DecimalConstant
+    :   NonzeroDigit Digit*
+    ;
+    
 fragment
 NonzeroDigit
     :   [1-9]
     ;
 
+
+fragment
+IntegerSuffix
+    :   UnsignedSuffix LongSuffix?
+    |   UnsignedSuffix LongLongSuffix
+    |   LongSuffix UnsignedSuffix?
+    |   LongLongSuffix UnsignedSuffix?
+    ;
+
+fragment
+UnsignedSuffix
+    :   [uU]
+    ;
+
+fragment
+LongSuffix
+    :   [lL]
+    ;
+
+fragment
+LongLongSuffix
+    :   'll' | 'LL'
+    ;
+
+fragment
+FloatingConstant
+    :   DecimalFloatingConstant
+    ;
+
+DecimalFloatingConstant
+    :   FractionalConstant ExponentPart? FloatingSuffix?
+    |   DigitSequence ExponentPart FloatingSuffix?
+    ;
+
+fragment
+FractionalConstant
+    :   DigitSequence? '.' DigitSequence
+    |   DigitSequence '.'
+    ;
+fragment
+ExponentPart
+    :   'e' Sign? DigitSequence
+    |   'E' Sign? DigitSequence
+    ;
 fragment
 Sign
     :   '+' | '-'
@@ -456,6 +533,20 @@ fragment
 DigitSequence
     :   Digit+
     ;
+
+fragment
+FloatingSuffix
+    :   'f' | 'l' | 'F' | 'L'
+    ;
+
+fragment
+CharacterConstant
+    :   '\'' CCharSequence '\''
+    |   'L\'' CCharSequence '\''
+    |   'u\'' CCharSequence '\''
+    |   'U\'' CCharSequence '\''
+    ;
+
 fragment
 CCharSequence
     :   CChar+
@@ -494,6 +585,26 @@ SChar
     |   '\\\r\n' // Added line
     ;
 
+ComplexDefine
+    :   '#' Whitespace? 'define'  ~[#]*
+        -> skip
+    ;
+
+LineAfterPreprocessing
+    :   '#line' Whitespace* ~[\r\n]*
+        -> skip
+    ;  
+
+LineDirective
+    :   '#' Whitespace? DecimalConstant Whitespace? StringLiteral ~[\r\n]*
+        -> skip
+    ;
+
+PragmaDirective
+    :   '#' Whitespace? 'pragma' Whitespace ~[\r\n]*
+        -> skip
+    ;
+
 Whitespace
     :   [ \t]+
         -> skip
@@ -515,3 +626,7 @@ LineComment
     :   '//' ~[\r\n]*
         -> skip
     ;
+
+
+
+
