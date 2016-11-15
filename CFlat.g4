@@ -432,14 +432,17 @@ NotEqual : '!=';
 Dot : '.';
 
 Identifier
-    :   Nondigit
+    :   IdentifierNondigit
         (   IdentifierNondigit
         |   Digit
         )*
     ;
+
 fragment
 IdentifierNondigit
     :   Nondigit
+    |   UniversalCharacterName
+    //|   // other implementation-defined characters...
     ;
 
 fragment
@@ -452,16 +455,29 @@ Digit
     :   [0-9]
     ;
 
+fragment
+UniversalCharacterName
+    :   '\\u' HexQuad
+    |   '\\U' HexQuad HexQuad
+    ;
+
+fragment
+HexQuad
+    :   HexadecimalDigit HexadecimalDigit HexadecimalDigit HexadecimalDigit
+    ;
 
 Constant
     :   IntegerConstant
     |   FloatingConstant
+    //|   EnumerationConstant
     |   CharacterConstant
     ;
 
 fragment
 IntegerConstant
     :   DecimalConstant IntegerSuffix?
+    |   OctalConstant IntegerSuffix?
+    |   HexadecimalConstant IntegerSuffix?
     |   BinaryConstant
     ;
 
@@ -474,12 +490,36 @@ fragment
 DecimalConstant
     :   NonzeroDigit Digit*
     ;
-    
+
+fragment
+OctalConstant
+    :   '0' OctalDigit*
+    ;
+
+fragment
+HexadecimalConstant
+    :   HexadecimalPrefix HexadecimalDigit+
+    ;
+
+fragment
+HexadecimalPrefix
+    :   '0' [xX]
+    ;
+
 fragment
 NonzeroDigit
     :   [1-9]
     ;
 
+fragment
+OctalDigit
+    :   [0-7]
+    ;
+
+fragment
+HexadecimalDigit
+    :   [0-9a-fA-F]
+    ;
 
 fragment
 IntegerSuffix
@@ -507,11 +547,19 @@ LongLongSuffix
 fragment
 FloatingConstant
     :   DecimalFloatingConstant
+    |   HexadecimalFloatingConstant
     ;
 
+fragment
 DecimalFloatingConstant
     :   FractionalConstant ExponentPart? FloatingSuffix?
     |   DigitSequence ExponentPart FloatingSuffix?
+    ;
+
+fragment
+HexadecimalFloatingConstant
+    :   HexadecimalPrefix HexadecimalFractionalConstant BinaryExponentPart FloatingSuffix?
+    |   HexadecimalPrefix HexadecimalDigitSequence BinaryExponentPart FloatingSuffix?
     ;
 
 fragment
@@ -519,11 +567,13 @@ FractionalConstant
     :   DigitSequence? '.' DigitSequence
     |   DigitSequence '.'
     ;
+
 fragment
 ExponentPart
     :   'e' Sign? DigitSequence
     |   'E' Sign? DigitSequence
     ;
+
 fragment
 Sign
     :   '+' | '-'
@@ -532,6 +582,23 @@ Sign
 fragment
 DigitSequence
     :   Digit+
+    ;
+
+fragment
+HexadecimalFractionalConstant
+    :   HexadecimalDigitSequence? '.' HexadecimalDigitSequence
+    |   HexadecimalDigitSequence '.'
+    ;
+
+fragment
+BinaryExponentPart
+    :   'p' Sign? DigitSequence
+    |   'P' Sign? DigitSequence
+    ;
+
+fragment
+HexadecimalDigitSequence
+    :   HexadecimalDigit+
     ;
 
 fragment
@@ -557,32 +624,52 @@ CChar
     :   ~['\\\r\n]
     |   EscapeSequence
     ;
-
 fragment
 EscapeSequence
     :   SimpleEscapeSequence
+    |   OctalEscapeSequence
+    |   HexadecimalEscapeSequence
+    |   UniversalCharacterName
     ;
-
 fragment
 SimpleEscapeSequence
     :   '\\' ['"?abfnrtv\\]
     ;
-
-StringLiteral
-    :    SCharSequence? '"'
+fragment
+OctalEscapeSequence
+    :   '\\' OctalDigit
+    |   '\\' OctalDigit OctalDigit
+    |   '\\' OctalDigit OctalDigit OctalDigit
     ;
-
+fragment
+HexadecimalEscapeSequence
+    :   '\\x' HexadecimalDigit+
+    ;
+StringLiteral
+    :   EncodingPrefix? '"' SCharSequence? '"'
+    ;
+fragment
+EncodingPrefix
+    :   'u8'
+    |   'u'
+    |   'U'
+    |   'L'
+    ;
 fragment
 SCharSequence
     :   SChar+
     ;
-
 fragment
 SChar
     :   ~["\\\r\n]
     |   EscapeSequence
     |   '\\\n'   // Added line
     |   '\\\r\n' // Added line
+    ;
+
+ComplexDefine
+    :   '#' Whitespace? 'define'  ~[#]*
+        -> skip
     ;
 
 ComplexDefine
