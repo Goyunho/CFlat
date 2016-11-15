@@ -1,7 +1,7 @@
 grammar CFlat;
 
 run
-    : translationUnit
+    : translationUnit+
     ;
 
 primaryExpression
@@ -275,6 +275,8 @@ declarationSpecifiers2
 declarationSpecifier
     :   storageClassSpecifier
     |   typeSpecifier
+    |   typeQualifier
+    |   functionSpecifier
     ;
 
 storageClassSpecifier
