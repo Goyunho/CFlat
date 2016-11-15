@@ -2,15 +2,26 @@ grammar cflat;
 
 //File 전체
 run
-    : line? EOF
+    : frame EOF
     ;
 
-/*
-//영역(그룹)
-Brace_group
-    : Leftbrace Line* Rightbrace
+//전체적인 틀, 구조
+frame
+    : (line|brace_group)+
     ;
- */
+
+//조건문
+iterationStatement
+    :   'while' '(' Calculator_logic ')' brace_group
+    |   'do' brace_group 'while' '(' Calculator_logic ')' ';'
+    |   'for' '(' (Calculator_logic|Assignment)? ';' Calculator_logic? ';' (Calculator_logic|Assignment)? ')' brace_group
+    ;
+
+//영역(그룹)
+brace_group
+    : Leftbrace (line|brace_group)* Rightbrace
+    ;
+
 //한줄 끝
 line
     : action_end+ Newline?
@@ -54,6 +65,7 @@ Value
     | Val_boolean
     | Val_void
     | Calculator
+    | Valiable
     ;
 
 //연산

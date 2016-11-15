@@ -17,6 +17,33 @@ class cflatListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by cflatParser#frame.
+    def enterFrame(self, ctx:cflatParser.FrameContext):
+        pass
+
+    # Exit a parse tree produced by cflatParser#frame.
+    def exitFrame(self, ctx:cflatParser.FrameContext):
+        pass
+
+
+    # Enter a parse tree produced by cflatParser#iterationStatement.
+    def enterIterationStatement(self, ctx:cflatParser.IterationStatementContext):
+        pass
+
+    # Exit a parse tree produced by cflatParser#iterationStatement.
+    def exitIterationStatement(self, ctx:cflatParser.IterationStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by cflatParser#brace_group.
+    def enterBrace_group(self, ctx:cflatParser.Brace_groupContext):
+        pass
+
+    # Exit a parse tree produced by cflatParser#brace_group.
+    def exitBrace_group(self, ctx:cflatParser.Brace_groupContext):
+        pass
+
+
     # Enter a parse tree produced by cflatParser#line.
     def enterLine(self, ctx:cflatParser.LineContext):
         pass
