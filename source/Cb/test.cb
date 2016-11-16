@@ -13,7 +13,7 @@ int main()
 {
 	int i=x;
 	while(i>0) {
-		print "fib(", i, ") = ", fib(i), "\n";
+		print("fib(", i, ") = ", fib(i), "\n");
 		i--;
 	}
 
