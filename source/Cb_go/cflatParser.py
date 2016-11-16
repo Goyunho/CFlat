@@ -185,13 +185,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_run
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterRun" ):
-                listener.enterRun(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitRun" ):
-                listener.exitRun(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRun" ):
+                return visitor.visitRun(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -230,13 +228,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_frame
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFrame" ):
-                listener.enterFrame(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFrame" ):
-                listener.exitFrame(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFrame" ):
+                return visitor.visitFrame(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -285,13 +281,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_group
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterGroup" ):
-                listener.enterGroup(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitGroup" ):
-                listener.exitGroup(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitGroup" ):
+                return visitor.visitGroup(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -346,13 +340,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_brace_group
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBrace_group" ):
-                listener.enterBrace_group(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBrace_group" ):
-                listener.exitBrace_group(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBrace_group" ):
+                return visitor.visitBrace_group(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -405,13 +397,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_line
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterLine" ):
-                listener.enterLine(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitLine" ):
-                listener.exitLine(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitLine" ):
+                return visitor.visitLine(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -468,13 +458,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_action_end
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAction_end" ):
-                listener.enterAction_end(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAction_end" ):
-                listener.exitAction_end(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAction_end" ):
+                return visitor.visitAction_end(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -519,13 +507,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_actions
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterActions" ):
-                listener.enterActions(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitActions" ):
-                listener.exitActions(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitActions" ):
+                return visitor.visitActions(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -580,13 +566,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_action
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAction" ):
-                listener.enterAction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAction" ):
-                listener.exitAction(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAction" ):
+                return visitor.visitAction(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -622,13 +606,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_increase
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIncrease" ):
-                listener.enterIncrease(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIncrease" ):
-                listener.exitIncrease(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIncrease" ):
+                return visitor.visitIncrease(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -659,13 +641,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_decrease
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterDecrease" ):
-                listener.enterDecrease(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitDecrease" ):
-                listener.exitDecrease(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDecrease" ):
+                return visitor.visitDecrease(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -696,13 +676,11 @@ class cflatParser ( Parser ):
         def getRuleIndex(self):
             return cflatParser.RULE_percent
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPercent" ):
-                listener.enterPercent(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPercent" ):
-                listener.exitPercent(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPercent" ):
+                return visitor.visitPercent(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
