@@ -26,12 +26,12 @@ class cflatListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by cflatParser#iterationStatement.
-    def enterIterationStatement(self, ctx:cflatParser.IterationStatementContext):
+    # Enter a parse tree produced by cflatParser#group.
+    def enterGroup(self, ctx:cflatParser.GroupContext):
         pass
 
-    # Exit a parse tree produced by cflatParser#iterationStatement.
-    def exitIterationStatement(self, ctx:cflatParser.IterationStatementContext):
+    # Exit a parse tree produced by cflatParser#group.
+    def exitGroup(self, ctx:cflatParser.GroupContext):
         pass
 
 

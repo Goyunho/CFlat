@@ -1,17 +1,12 @@
 grammar CFlat;
 
-run
-    : translationUnit+
-    ;
-
 primaryExpression
     :   Identifier
+    |   Constant
     |   StringLiteral+
     |   '(' expression ')'
     |   genericSelection
     |   '__extension__'? '(' compoundStatement ')' 
-    |   '__builtin_va_arg' '(' unaryExpression ',' typeName ')'
-    |   '__builtin_offsetof' '(' typeName ',' unaryExpression ')'
     ;
 
 genericSelection
@@ -45,8 +40,6 @@ postfixExpression
     |   postfixExpression '--'
     |   '(' typeName ')' '{' initializerList '}'
     |   '(' typeName ')' '{' initializerList ',' '}'
-    |   '__extension__' '(' typeName ')' '{' initializerList '}'
-    |   '__extension__' '(' typeName ')' '{' initializerList ',' '}'
     ;
 
 argumentExpressionList
@@ -58,7 +51,7 @@ unaryExpression
     :   postfixExpression
     |   '++' unaryExpression
     |   '--' unaryExpression
-    |   unaryOperator unaryExpression
+    |   unaryOperator 
     |   'sizeof' unaryExpression
     |   'sizeof' '(' typeName ')'
     |	'&&' Identifier
@@ -150,10 +143,20 @@ typeSpecifier
     |   'unsigned'
     |   '_Bool'
     |   typedefName
+    |   atomicTypeSpecifier
     ;
 
 typedefName
     :   Identifier
+    ;
+
+statement
+    :   labeledStatement
+    |   compoundStatement
+    |   expressionStatement
+    |   selectionStatement
+    |   iterationStatement
+    |   jumpStatement
     ;
 
 iterationStatement
@@ -171,6 +174,22 @@ jumpStatement
     |   'goto' unaryExpression ';'
     ;
 
+expressionStatement
+    :   expression? ';'
+    ;
+
+selectionStatement
+    :   'if' '(' expression ')' statement ('else' statement)?
+    |   'switch' '(' expression ')' statement
+    ;    
+
+labeledStatement
+    :   Identifier ':' statement
+    |   'case' constantExpression ':' statement
+    |   'default' ':' statement
+    ;
+
+
 compoundStatement
     :   '{' blockItemList? '}'
     ;
@@ -181,8 +200,8 @@ blockItemList
     ;
 
 blockItem
-    :   declaration 
-    |   statement 
+    :   declaration
+    |   statement
     ;
 
 compilationUnit
@@ -193,6 +212,7 @@ compilationUnit
 translationUnit
     :   externalDeclaration
     |   translationUnit externalDeclaration
+
     ;
 
 declaration
@@ -246,6 +266,8 @@ typeQualifierList
 
 typeQualifier
     :   'const'
+    |   'volatile'
+    |   '_Atomic'
     ;
 
 parameterTypeList
@@ -279,18 +301,7 @@ declarationSpecifiers2
 declarationSpecifier
     :   storageClassSpecifier
     |   typeSpecifier
-    |   typeQualifier
-    |   functionSpecifier
     ;
-
-functionSpecifier
-    :   ('inline'
-    |   '_Noreturn'
-    |   '__inline__' 
-    |   '__stdcall')
-    |   '__declspec' '(' Identifier ')'
-    ;
-
 
 storageClassSpecifier
     :   'typedef'
@@ -335,29 +346,8 @@ designator
     |   '.' Identifier
     ;
 
-statement
-    :   labeledStatement
-    |   compoundStatement
-    |   expressionStatement
-    |   selectionStatement
-    |   iterationStatement
-    |   jumpStatement
-    |   '(' (logicalOrExpression (',' logicalOrExpression)*)? (':' (logicalOrExpression (',' logicalOrExpression)*)?)* ')' ';'
-    ;
-
-expressionStatement
-    :   expression? ';'
-    ;
-
-selectionStatement
-    :   'if' '(' expression ')' statement ('else' statement)?
-    |   'switch' '(' expression ')' statement
-    ;    
-
-labeledStatement
-    :   Identifier ':' statement
-    |   'case' constantExpression ':' statement
-    |   'default' ':' statement
+atomicTypeSpecifier
+    :   '_Atomic' '(' typeName ')'
     ;
 
 
@@ -376,7 +366,6 @@ For : 'for';
 Goto : 'goto';
 If : 'if';
 Int : 'int';
-Inline : 'inline';
 Long : 'long';
 Return : 'return';
 Short : 'short';
@@ -388,11 +377,12 @@ Unsigned : 'unsigned';
 Void : 'void';
 While : 'while';
 
+Atomic : '_Atomic';
+Volatile : 'volatile';
+Static : 'static';
+StaticAssert : '_Static_assert';
 Bool : '_Bool';
 Generic : '_Generic';
-Noreturn : '_Noreturn';
-StaticAssert : '_Static_assert';
-
 LeftParen : '(';
 RightParen : ')';
 LeftBracket : '[';
@@ -432,234 +422,70 @@ NotEqual : '!=';
 Dot : '.';
 
 Identifier
-    :   IdentifierNondigit
+    :   Nondigit
         (   IdentifierNondigit
         |   Digit
         )*
     ;
 
-fragment
 IdentifierNondigit
     :   Nondigit
-    |   UniversalCharacterName
-    //|   // other implementation-defined characters...
     ;
 
-fragment
+
 Nondigit
     :   [a-zA-Z_]
     ;
 
-fragment
+
 Digit
     :   [0-9]
     ;
 
-fragment
-UniversalCharacterName
-    :   '\\u' HexQuad
-    |   '\\U' HexQuad HexQuad
-    ;
-
-fragment
-HexQuad
-    :   HexadecimalDigit HexadecimalDigit HexadecimalDigit HexadecimalDigit
-    ;
-
-Constant
-    :   IntegerConstant
-    |   FloatingConstant
-    //|   EnumerationConstant
-    |   CharacterConstant
-    ;
-
-fragment
-IntegerConstant
-    :   DecimalConstant IntegerSuffix?
-    |   OctalConstant IntegerSuffix?
-    |   HexadecimalConstant IntegerSuffix?
-    |   BinaryConstant
-    ;
-
-fragment
-BinaryConstant
-    :   '0' [bB] [0-1]+
-    ;
-
-fragment
-DecimalConstant
-    :   NonzeroDigit Digit*
-    ;
-
-fragment
-OctalConstant
-    :   '0' OctalDigit*
-    ;
-
-fragment
-HexadecimalConstant
-    :   HexadecimalPrefix HexadecimalDigit+
-    ;
-
-fragment
-HexadecimalPrefix
-    :   '0' [xX]
-    ;
-
-fragment
 NonzeroDigit
     :   [1-9]
     ;
 
-fragment
-OctalDigit
-    :   [0-7]
-    ;
 
-fragment
-HexadecimalDigit
-    :   [0-9a-fA-F]
-    ;
-
-fragment
-IntegerSuffix
-    :   UnsignedSuffix LongSuffix?
-    |   UnsignedSuffix LongLongSuffix
-    |   LongSuffix UnsignedSuffix?
-    |   LongLongSuffix UnsignedSuffix?
-    ;
-
-fragment
-UnsignedSuffix
-    :   [uU]
-    ;
-
-fragment
-LongSuffix
-    :   [lL]
-    ;
-
-fragment
-LongLongSuffix
-    :   'll' | 'LL'
-    ;
-
-fragment
-FloatingConstant
-    :   DecimalFloatingConstant
-    |   HexadecimalFloatingConstant
-    ;
-
-fragment
-DecimalFloatingConstant
-    :   FractionalConstant ExponentPart? FloatingSuffix?
-    |   DigitSequence ExponentPart FloatingSuffix?
-    ;
-
-fragment
-HexadecimalFloatingConstant
-    :   HexadecimalPrefix HexadecimalFractionalConstant BinaryExponentPart FloatingSuffix?
-    |   HexadecimalPrefix HexadecimalDigitSequence BinaryExponentPart FloatingSuffix?
-    ;
-
-fragment
-FractionalConstant
-    :   DigitSequence? '.' DigitSequence
-    |   DigitSequence '.'
-    ;
-
-fragment
-ExponentPart
-    :   'e' Sign? DigitSequence
-    |   'E' Sign? DigitSequence
-    ;
-
-fragment
 Sign
     :   '+' | '-'
     ;
 
-fragment
+
 DigitSequence
     :   Digit+
     ;
 
-fragment
-HexadecimalFractionalConstant
-    :   HexadecimalDigitSequence? '.' HexadecimalDigitSequence
-    |   HexadecimalDigitSequence '.'
-    ;
-
-fragment
-BinaryExponentPart
-    :   'p' Sign? DigitSequence
-    |   'P' Sign? DigitSequence
-    ;
-
-fragment
-HexadecimalDigitSequence
-    :   HexadecimalDigit+
-    ;
-
-fragment
-FloatingSuffix
-    :   'f' | 'l' | 'F' | 'L'
-    ;
-
-fragment
-CharacterConstant
-    :   '\'' CCharSequence '\''
-    |   'L\'' CCharSequence '\''
-    |   'u\'' CCharSequence '\''
-    |   'U\'' CCharSequence '\''
-    ;
-
-fragment
 CCharSequence
     :   CChar+
     ;
 
-fragment
+
 CChar
     :   ~['\\\r\n]
     |   EscapeSequence
     ;
-fragment
+
+
 EscapeSequence
     :   SimpleEscapeSequence
-    |   OctalEscapeSequence
-    |   HexadecimalEscapeSequence
-    |   UniversalCharacterName
     ;
-fragment
+
+
 SimpleEscapeSequence
     :   '\\' ['"?abfnrtv\\]
     ;
-fragment
-OctalEscapeSequence
-    :   '\\' OctalDigit
-    |   '\\' OctalDigit OctalDigit
-    |   '\\' OctalDigit OctalDigit OctalDigit
-    ;
-fragment
-HexadecimalEscapeSequence
-    :   '\\x' HexadecimalDigit+
-    ;
+
 StringLiteral
-    :   EncodingPrefix? '"' SCharSequence? '"'
+    :    SCharSequence? '"'
     ;
-fragment
-EncodingPrefix
-    :   'u8'
-    |   'u'
-    |   'U'
-    |   'L'
-    ;
-fragment
+
+
 SCharSequence
     :   SChar+
     ;
-fragment
+
+
 SChar
     :   ~["\\\r\n]
     |   EscapeSequence
@@ -667,29 +493,75 @@ SChar
     |   '\\\r\n' // Added line
     ;
 
-ComplexDefine
-    :   '#' Whitespace? 'define'  ~[#]*
-        -> skip
+Constant
+    :   IntegerConstant
+    |   FloatingConstant
+    |   CharacterConstant
     ;
 
-ComplexDefine
-    :   '#' Whitespace? 'define'  ~[#]*
-        -> skip
+IntegerConstant
+    :   DecimalConstant IntegerSuffix?
+    |   BinaryConstant
     ;
 
-LineAfterPreprocessing
-    :   '#line' Whitespace* ~[\r\n]*
-        -> skip
-    ;  
-
-LineDirective
-    :   '#' Whitespace? DecimalConstant Whitespace? StringLiteral ~[\r\n]*
-        -> skip
+FloatingConstant
+    :   DecimalFloatingConstant
     ;
 
-PragmaDirective
-    :   '#' Whitespace? 'pragma' Whitespace ~[\r\n]*
-        -> skip
+DecimalFloatingConstant
+    :   FractionalConstant ExponentPart? FloatingSuffix?
+    |   DigitSequence ExponentPart FloatingSuffix?
+    ;
+
+ExponentPart
+    :   'e' Sign? DigitSequence
+    |   'E' Sign? DigitSequence
+    ;
+
+FloatingSuffix
+    :   'f' | 'l' | 'F' | 'L'
+    ;
+
+FractionalConstant
+    :   DigitSequence? '.' DigitSequence
+    |   DigitSequence '.'
+    ;
+
+CharacterConstant
+    :   '\'' CCharSequence '\''
+    |   'L\'' CCharSequence '\''
+    |   'u\'' CCharSequence '\''
+    |   'U\'' CCharSequence '\''
+    ;
+
+DecimalConstant
+    :   NonzeroDigit Digit*
+    ;
+
+BinaryConstant
+    :   '0' [bB] [0-1]+
+    ;
+
+IntegerSuffix
+    :   UnsignedSuffix LongSuffix?
+    |   UnsignedSuffix LongLongSuffix
+    |   LongSuffix UnsignedSuffix?
+    |   LongLongSuffix UnsignedSuffix?
+    ;
+
+
+UnsignedSuffix
+    :   [uU]
+    ;
+
+
+LongSuffix
+    :   [lL]
+    ;
+
+
+LongLongSuffix
+    :   'll' | 'LL'
     ;
 
 Whitespace
@@ -713,7 +585,3 @@ LineComment
     :   '//' ~[\r\n]*
         -> skip
     ;
-
-
-
-

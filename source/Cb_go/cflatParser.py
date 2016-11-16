@@ -5,38 +5,29 @@ from io import StringIO
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3I")
-        buf.write("e\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
+        buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3K")
+        buf.write("I\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
         buf.write("\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\3\2\3\2\3\2\3\3")
-        buf.write("\3\3\6\3\36\n\3\r\3\16\3\37\3\4\3\4\3\4\3\4\3\4\3\4\3")
-        buf.write("\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\62\n\4\3\4")
-        buf.write("\3\4\5\4\66\n\4\3\4\3\4\5\4:\n\4\3\4\3\4\5\4>\n\4\3\5")
-        buf.write("\3\5\3\5\7\5C\n\5\f\5\16\5F\13\5\3\5\3\5\3\6\6\6K\n\6")
-        buf.write("\r\6\16\6L\3\6\5\6P\n\6\3\7\3\7\3\7\3\b\3\b\3\b\7\bX\n")
-        buf.write("\b\f\b\16\b[\13\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3")
-        buf.write("\f\2\2\r\2\4\6\b\n\f\16\20\22\24\26\2\4\4\2\b\b\16\16")
-        buf.write("\3\2\7\13e\2\30\3\2\2\2\4\35\3\2\2\2\6=\3\2\2\2\b?\3\2")
-        buf.write("\2\2\nJ\3\2\2\2\fQ\3\2\2\2\16T\3\2\2\2\20\\\3\2\2\2\22")
-        buf.write("^\3\2\2\2\24`\3\2\2\2\26b\3\2\2\2\30\31\5\4\3\2\31\32")
-        buf.write("\7\2\2\3\32\3\3\2\2\2\33\36\5\n\6\2\34\36\5\b\5\2\35\33")
-        buf.write("\3\2\2\2\35\34\3\2\2\2\36\37\3\2\2\2\37\35\3\2\2\2\37")
-        buf.write(" \3\2\2\2 \5\3\2\2\2!\"\7\34\2\2\"#\7@\2\2#$\7\16\2\2")
-        buf.write("$%\7A\2\2%>\5\b\5\2&\'\7\3\2\2\'(\5\b\5\2()\7\34\2\2)")
-        buf.write("*\7@\2\2*+\7\16\2\2+,\7A\2\2,-\7>\2\2->\3\2\2\2./\7\33")
-        buf.write("\2\2/\61\7@\2\2\60\62\t\2\2\2\61\60\3\2\2\2\61\62\3\2")
-        buf.write("\2\2\62\63\3\2\2\2\63\65\7>\2\2\64\66\7\16\2\2\65\64\3")
-        buf.write("\2\2\2\65\66\3\2\2\2\66\67\3\2\2\2\679\7>\2\28:\t\2\2")
-        buf.write("\298\3\2\2\29:\3\2\2\2:;\3\2\2\2;<\7A\2\2<>\5\b\5\2=!")
-        buf.write("\3\2\2\2=&\3\2\2\2=.\3\2\2\2>\7\3\2\2\2?D\7D\2\2@C\5\n")
-        buf.write("\6\2AC\5\b\5\2B@\3\2\2\2BA\3\2\2\2CF\3\2\2\2DB\3\2\2\2")
-        buf.write("DE\3\2\2\2EG\3\2\2\2FD\3\2\2\2GH\7E\2\2H\t\3\2\2\2IK\5")
-        buf.write("\f\7\2JI\3\2\2\2KL\3\2\2\2LJ\3\2\2\2LM\3\2\2\2MO\3\2\2")
-        buf.write("\2NP\7G\2\2ON\3\2\2\2OP\3\2\2\2P\13\3\2\2\2QR\5\16\b\2")
-        buf.write("RS\7>\2\2S\r\3\2\2\2TY\5\20\t\2UV\7?\2\2VX\5\20\t\2WU")
-        buf.write("\3\2\2\2X[\3\2\2\2YW\3\2\2\2YZ\3\2\2\2Z\17\3\2\2\2[Y\3")
-        buf.write("\2\2\2\\]\t\3\2\2]\21\3\2\2\2^_\7\4\2\2_\23\3\2\2\2`a")
-        buf.write("\7\5\2\2a\25\3\2\2\2bc\7\6\2\2c\27\3\2\2\2\r\35\37\61")
-        buf.write("\659=BDLOY")
+        buf.write("\6\3\35\n\3\r\3\16\3\36\3\4\3\4\5\4#\n\4\3\5\3\5\7\5\'")
+        buf.write("\n\5\f\5\16\5*\13\5\3\5\3\5\3\6\6\6/\n\6\r\6\16\6\60\3")
+        buf.write("\6\5\6\64\n\6\3\7\3\7\3\7\3\b\3\b\3\b\7\b<\n\b\f\b\16")
+        buf.write("\b?\13\b\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2")
+        buf.write("\4\6\b\n\f\16\20\22\24\26\2\3\4\2\6\b\n\nC\2\30\3\2\2")
+        buf.write("\2\4\34\3\2\2\2\6\"\3\2\2\2\b$\3\2\2\2\n.\3\2\2\2\f\65")
+        buf.write("\3\2\2\2\168\3\2\2\2\20@\3\2\2\2\22B\3\2\2\2\24D\3\2\2")
+        buf.write("\2\26F\3\2\2\2\30\31\5\4\3\2\31\32\7\2\2\3\32\3\3\2\2")
+        buf.write("\2\33\35\5\6\4\2\34\33\3\2\2\2\35\36\3\2\2\2\36\34\3\2")
+        buf.write("\2\2\36\37\3\2\2\2\37\5\3\2\2\2 #\5\b\5\2!#\5\n\6\2\"")
+        buf.write(" \3\2\2\2\"!\3\2\2\2#\7\3\2\2\2$(\7F\2\2%\'\5\6\4\2&%")
+        buf.write("\3\2\2\2\'*\3\2\2\2(&\3\2\2\2()\3\2\2\2)+\3\2\2\2*(\3")
+        buf.write("\2\2\2+,\7G\2\2,\t\3\2\2\2-/\5\f\7\2.-\3\2\2\2/\60\3\2")
+        buf.write("\2\2\60.\3\2\2\2\60\61\3\2\2\2\61\63\3\2\2\2\62\64\7I")
+        buf.write("\2\2\63\62\3\2\2\2\63\64\3\2\2\2\64\13\3\2\2\2\65\66\5")
+        buf.write("\16\b\2\66\67\7@\2\2\67\r\3\2\2\28=\5\20\t\29:\7A\2\2")
+        buf.write(":<\5\20\t\2;9\3\2\2\2<?\3\2\2\2=;\3\2\2\2=>\3\2\2\2>\17")
+        buf.write("\3\2\2\2?=\3\2\2\2@A\t\2\2\2A\21\3\2\2\2BC\7\3\2\2C\23")
+        buf.write("\3\2\2\2DE\7\4\2\2E\25\3\2\2\2FG\7\5\2\2G\27\3\2\2\2\b")
+        buf.write("\36\"(\60\63=")
         return buf.getvalue()
 
 
@@ -50,39 +41,39 @@ class cflatParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'do'", "'++'", "'--'", "'%'", "<INVALID>", 
+    literalNames = [ "<INVALID>", "'++'", "'--'", "'%'", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "<INVALID>", "<INVALID>", "'case'", "'break'", 
-                     "'continue'", "'default'", "'for'", "'while'", "'if'", 
-                     "'else'", "'return'", "'switch'", "<INVALID>", "'int'", 
-                     "'float'", "'string'", "'boolean'", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'+'", "'-'", "'*'", "'/'", "'&'", "'&&'", 
-                     "'|'", "'||'", "'^'", "'!'", "'=='", "'!='", "'<'", 
-                     "'<='", "'>'", "'>='", "'<<'", "'>>'", "'='", "'.'", 
-                     "':'", "';'", "','", "'('", "')'", "'['", "']'", "'{'", 
-                     "'}'" ]
+                     "<INVALID>", "<INVALID>", "'case'", "'break'", "'continue'", 
+                     "'default'", "'for'", "'while'", "'if'", "'else'", 
+                     "'return'", "'switch'", "<INVALID>", "'int'", "'float'", 
+                     "'string'", "'boolean'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'+'", "'-'", "'*'", "'/'", 
+                     "<INVALID>", "'&'", "'|'", "'^'", "'<<'", "'>>'", "<INVALID>", 
+                     "'&&'", "'||'", "'!'", "'=='", "'!='", "'<'", "'<='", 
+                     "'>'", "'>='", "'='", "'.'", "':'", "';'", "','", "'('", 
+                     "')'", "'['", "']'", "'{'", "'}'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "Initialisation", "Assignment", "Declaration", 
-                      "Value", "Calculator", "Calculator_pmad", "Calculator_bit", 
+                      "Initialisation", "Assignment", "Declaration", "Value", 
+                      "Calculator", "Calculator_pmad", "Calculator_bit", 
                       "Calculator_logic", "Valiable", "Val_int", "Val_float", 
                       "Val_string", "Val_boolean", "Val_void", "Digit", 
                       "Nondigit", "Case", "Break", "Continue", "Default", 
                       "For", "While", "If", "Else", "RETURN", "Switch", 
                       "Type", "Int", "Float", "String", "Boolean", "Void", 
-                      "TRUE", "FALSE", "Plus", "Minus", "Asterisk", "Div", 
-                      "And", "Andand", "Or", "Oror", "Caret", "Not", "Equal", 
-                      "Notequal", "Less", "Lessequal", "Greater", "Greaterequal", 
-                      "Leftshift", "Rightshift", "Assign", "Dot", "Colon", 
-                      "Semi", "Coma", "Leftparen", "Rightparen", "Leftbracket", 
-                      "Rightbracket", "Leftbrace", "Rightbrace", "Whitespace", 
-                      "Newline", "Block_comment", "Line_comment" ]
+                      "TRUE", "FALSE", "NULL", "Plus", "Minus", "Asterisk", 
+                      "Div", "Bit", "And", "Or", "Caret", "Leftshift", "Rightshift", 
+                      "Logic", "Andand", "Oror", "Not", "Equal", "Notequal", 
+                      "Less", "Lessequal", "Greater", "Greaterequal", "Assign", 
+                      "Dot", "Colon", "Semi", "Coma", "Leftparen", "Rightparen", 
+                      "Leftbracket", "Rightbracket", "Leftbrace", "Rightbrace", 
+                      "Whitespace", "Newline", "Block_comment", "Line_comment" ]
 
     RULE_run = 0
     RULE_frame = 1
-    RULE_iterationStatement = 2
+    RULE_group = 2
     RULE_brace_group = 3
     RULE_line = 4
     RULE_action_end = 5
@@ -92,82 +83,83 @@ class cflatParser ( Parser ):
     RULE_decrease = 9
     RULE_percent = 10
 
-    ruleNames =  [ "run", "frame", "iterationStatement", "brace_group", 
-                   "line", "action_end", "actions", "action", "increase", 
-                   "decrease", "percent" ]
+    ruleNames =  [ "run", "frame", "group", "brace_group", "line", "action_end", 
+                   "actions", "action", "increase", "decrease", "percent" ]
 
     EOF = Token.EOF
     T__0=1
     T__1=2
     T__2=3
-    T__3=4
-    Initialisation=5
-    Assignment=6
-    Declaration=7
-    Value=8
-    Calculator=9
-    Calculator_pmad=10
-    Calculator_bit=11
-    Calculator_logic=12
-    Valiable=13
-    Val_int=14
-    Val_float=15
-    Val_string=16
-    Val_boolean=17
-    Val_void=18
-    Digit=19
-    Nondigit=20
-    Case=21
-    Break=22
-    Continue=23
-    Default=24
-    For=25
-    While=26
-    If=27
-    Else=28
-    RETURN=29
-    Switch=30
-    Type=31
-    Int=32
-    Float=33
-    String=34
-    Boolean=35
-    Void=36
-    TRUE=37
-    FALSE=38
+    Initialisation=4
+    Assignment=5
+    Declaration=6
+    Value=7
+    Calculator=8
+    Calculator_pmad=9
+    Calculator_bit=10
+    Calculator_logic=11
+    Valiable=12
+    Val_int=13
+    Val_float=14
+    Val_string=15
+    Val_boolean=16
+    Val_void=17
+    Digit=18
+    Nondigit=19
+    Case=20
+    Break=21
+    Continue=22
+    Default=23
+    For=24
+    While=25
+    If=26
+    Else=27
+    RETURN=28
+    Switch=29
+    Type=30
+    Int=31
+    Float=32
+    String=33
+    Boolean=34
+    Void=35
+    TRUE=36
+    FALSE=37
+    NULL=38
     Plus=39
     Minus=40
     Asterisk=41
     Div=42
-    And=43
-    Andand=44
+    Bit=43
+    And=44
     Or=45
-    Oror=46
-    Caret=47
-    Not=48
-    Equal=49
-    Notequal=50
-    Less=51
-    Lessequal=52
-    Greater=53
-    Greaterequal=54
-    Leftshift=55
-    Rightshift=56
-    Assign=57
-    Dot=58
-    Colon=59
-    Semi=60
-    Coma=61
-    Leftparen=62
-    Rightparen=63
-    Leftbracket=64
-    Rightbracket=65
-    Leftbrace=66
-    Rightbrace=67
-    Whitespace=68
-    Newline=69
-    Block_comment=70
-    Line_comment=71
+    Caret=46
+    Leftshift=47
+    Rightshift=48
+    Logic=49
+    Andand=50
+    Oror=51
+    Not=52
+    Equal=53
+    Notequal=54
+    Less=55
+    Lessequal=56
+    Greater=57
+    Greaterequal=58
+    Assign=59
+    Dot=60
+    Colon=61
+    Semi=62
+    Coma=63
+    Leftparen=64
+    Rightparen=65
+    Leftbracket=66
+    Rightbracket=67
+    Leftbrace=68
+    Rightbrace=69
+    Whitespace=70
+    Newline=71
+    Block_comment=72
+    Line_comment=73
 
     def __init__(self, input:TokenStream):
         super().__init__(input)
@@ -228,18 +220,11 @@ class cflatParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def line(self, i:int=None):
+        def group(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(cflatParser.LineContext)
+                return self.getTypedRuleContexts(cflatParser.GroupContext)
             else:
-                return self.getTypedRuleContext(cflatParser.LineContext,i)
-
-
-        def brace_group(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(cflatParser.Brace_groupContext)
-            else:
-                return self.getTypedRuleContext(cflatParser.Brace_groupContext,i)
+                return self.getTypedRuleContext(cflatParser.GroupContext,i)
 
 
         def getRuleIndex(self):
@@ -263,27 +248,16 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 27 
+            self.state = 26 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 27
-                token = self._input.LA(1)
-                if token in [cflatParser.Initialisation, cflatParser.Assignment, cflatParser.Declaration, cflatParser.Value, cflatParser.Calculator]:
-                    self.state = 25
-                    self.line()
-
-                elif token in [cflatParser.Leftbrace]:
-                    self.state = 26
-                    self.brace_group()
-
-                else:
-                    raise NoViableAltException(self)
-
-                self.state = 29 
+                self.state = 25
+                self.group()
+                self.state = 28 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (((((_la - 5)) & ~0x3f) == 0 and ((1 << (_la - 5)) & ((1 << (cflatParser.Initialisation - 5)) | (1 << (cflatParser.Assignment - 5)) | (1 << (cflatParser.Declaration - 5)) | (1 << (cflatParser.Value - 5)) | (1 << (cflatParser.Calculator - 5)) | (1 << (cflatParser.Leftbrace - 5)))) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Calculator))) != 0) or _la==cflatParser.Leftbrace):
                     break
 
         except RecognitionException as re:
@@ -294,123 +268,50 @@ class cflatParser ( Parser ):
             self.exitRule()
         return localctx
 
-    class IterationStatementContext(ParserRuleContext):
+    class GroupContext(ParserRuleContext):
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def Calculator_logic(self, i:int=None):
-            if i is None:
-                return self.getTokens(cflatParser.Calculator_logic)
-            else:
-                return self.getToken(cflatParser.Calculator_logic, i)
-
         def brace_group(self):
             return self.getTypedRuleContext(cflatParser.Brace_groupContext,0)
 
 
-        def Assignment(self, i:int=None):
-            if i is None:
-                return self.getTokens(cflatParser.Assignment)
-            else:
-                return self.getToken(cflatParser.Assignment, i)
+        def line(self):
+            return self.getTypedRuleContext(cflatParser.LineContext,0)
+
 
         def getRuleIndex(self):
-            return cflatParser.RULE_iterationStatement
+            return cflatParser.RULE_group
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIterationStatement" ):
-                listener.enterIterationStatement(self)
+            if hasattr( listener, "enterGroup" ):
+                listener.enterGroup(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIterationStatement" ):
-                listener.exitIterationStatement(self)
+            if hasattr( listener, "exitGroup" ):
+                listener.exitGroup(self)
 
 
 
 
-    def iterationStatement(self):
+    def group(self):
 
-        localctx = cflatParser.IterationStatementContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 4, self.RULE_iterationStatement)
-        self._la = 0 # Token type
+        localctx = cflatParser.GroupContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 4, self.RULE_group)
         try:
-            self.state = 59
+            self.state = 32
             token = self._input.LA(1)
-            if token in [cflatParser.While]:
+            if token in [cflatParser.Leftbrace]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 31
-                self.match(cflatParser.While)
-                self.state = 32
-                self.match(cflatParser.Leftparen)
-                self.state = 33
-                self.match(cflatParser.Calculator_logic)
-                self.state = 34
-                self.match(cflatParser.Rightparen)
-                self.state = 35
+                self.state = 30
                 self.brace_group()
 
-            elif token in [cflatParser.T__0]:
+            elif token in [cflatParser.Initialisation, cflatParser.Assignment, cflatParser.Declaration, cflatParser.Calculator]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 36
-                self.match(cflatParser.T__0)
-                self.state = 37
-                self.brace_group()
-                self.state = 38
-                self.match(cflatParser.While)
-                self.state = 39
-                self.match(cflatParser.Leftparen)
-                self.state = 40
-                self.match(cflatParser.Calculator_logic)
-                self.state = 41
-                self.match(cflatParser.Rightparen)
-                self.state = 42
-                self.match(cflatParser.Semi)
-
-            elif token in [cflatParser.For]:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 44
-                self.match(cflatParser.For)
-                self.state = 45
-                self.match(cflatParser.Leftparen)
-                self.state = 47
-                _la = self._input.LA(1)
-                if _la==cflatParser.Assignment or _la==cflatParser.Calculator_logic:
-                    self.state = 46
-                    _la = self._input.LA(1)
-                    if not(_la==cflatParser.Assignment or _la==cflatParser.Calculator_logic):
-                        self._errHandler.recoverInline(self)
-                    else:
-                        self.consume()
-
-
-                self.state = 49
-                self.match(cflatParser.Semi)
-                self.state = 51
-                _la = self._input.LA(1)
-                if _la==cflatParser.Calculator_logic:
-                    self.state = 50
-                    self.match(cflatParser.Calculator_logic)
-
-
-                self.state = 53
-                self.match(cflatParser.Semi)
-                self.state = 55
-                _la = self._input.LA(1)
-                if _la==cflatParser.Assignment or _la==cflatParser.Calculator_logic:
-                    self.state = 54
-                    _la = self._input.LA(1)
-                    if not(_la==cflatParser.Assignment or _la==cflatParser.Calculator_logic):
-                        self._errHandler.recoverInline(self)
-                    else:
-                        self.consume()
-
-
-                self.state = 57
-                self.match(cflatParser.Rightparen)
-                self.state = 58
-                self.brace_group()
+                self.state = 31
+                self.line()
 
             else:
                 raise NoViableAltException(self)
@@ -435,18 +336,11 @@ class cflatParser ( Parser ):
         def Rightbrace(self):
             return self.getToken(cflatParser.Rightbrace, 0)
 
-        def line(self, i:int=None):
+        def group(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(cflatParser.LineContext)
+                return self.getTypedRuleContexts(cflatParser.GroupContext)
             else:
-                return self.getTypedRuleContext(cflatParser.LineContext,i)
-
-
-        def brace_group(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(cflatParser.Brace_groupContext)
-            else:
-                return self.getTypedRuleContext(cflatParser.Brace_groupContext,i)
+                return self.getTypedRuleContext(cflatParser.GroupContext,i)
 
 
         def getRuleIndex(self):
@@ -470,30 +364,19 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 61
+            self.state = 34
             self.match(cflatParser.Leftbrace)
-            self.state = 66
+            self.state = 38
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((((_la - 5)) & ~0x3f) == 0 and ((1 << (_la - 5)) & ((1 << (cflatParser.Initialisation - 5)) | (1 << (cflatParser.Assignment - 5)) | (1 << (cflatParser.Declaration - 5)) | (1 << (cflatParser.Value - 5)) | (1 << (cflatParser.Calculator - 5)) | (1 << (cflatParser.Leftbrace - 5)))) != 0):
-                self.state = 64
-                token = self._input.LA(1)
-                if token in [cflatParser.Initialisation, cflatParser.Assignment, cflatParser.Declaration, cflatParser.Value, cflatParser.Calculator]:
-                    self.state = 62
-                    self.line()
-
-                elif token in [cflatParser.Leftbrace]:
-                    self.state = 63
-                    self.brace_group()
-
-                else:
-                    raise NoViableAltException(self)
-
-                self.state = 68
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Calculator))) != 0) or _la==cflatParser.Leftbrace:
+                self.state = 35
+                self.group()
+                self.state = 40
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 69
+            self.state = 41
             self.match(cflatParser.Rightbrace)
         except RecognitionException as re:
             localctx.exception = re
@@ -540,24 +423,24 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 72 
+            self.state = 44 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 71
+                    self.state = 43
                     self.action_end()
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 74 
+                self.state = 46 
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,8,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,3,self._ctx)
 
-            self.state = 77
+            self.state = 49
             _la = self._input.LA(1)
             if _la==cflatParser.Newline:
-                self.state = 76
+                self.state = 48
                 self.match(cflatParser.Newline)
 
 
@@ -602,9 +485,9 @@ class cflatParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_action_end)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 79
+            self.state = 51
             self.actions()
-            self.state = 80
+            self.state = 52
             self.match(cflatParser.Semi)
         except RecognitionException as re:
             localctx.exception = re
@@ -654,17 +537,17 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 82
+            self.state = 54
             self.action()
-            self.state = 87
+            self.state = 59
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==cflatParser.Coma:
-                self.state = 83
+                self.state = 55
                 self.match(cflatParser.Coma)
-                self.state = 84
+                self.state = 56
                 self.action()
-                self.state = 89
+                self.state = 61
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -691,9 +574,6 @@ class cflatParser ( Parser ):
         def Declaration(self):
             return self.getToken(cflatParser.Declaration, 0)
 
-        def Value(self):
-            return self.getToken(cflatParser.Value, 0)
-
         def Calculator(self):
             return self.getToken(cflatParser.Calculator, 0)
 
@@ -718,9 +598,9 @@ class cflatParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 90
+            self.state = 62
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Value) | (1 << cflatParser.Calculator))) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << cflatParser.Initialisation) | (1 << cflatParser.Assignment) | (1 << cflatParser.Declaration) | (1 << cflatParser.Calculator))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self.consume()
@@ -759,8 +639,8 @@ class cflatParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_increase)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 92
-            self.match(cflatParser.T__1)
+            self.state = 64
+            self.match(cflatParser.T__0)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -796,8 +676,8 @@ class cflatParser ( Parser ):
         self.enterRule(localctx, 18, self.RULE_decrease)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 94
-            self.match(cflatParser.T__2)
+            self.state = 66
+            self.match(cflatParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -833,8 +713,8 @@ class cflatParser ( Parser ):
         self.enterRule(localctx, 20, self.RULE_percent)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 96
-            self.match(cflatParser.T__3)
+            self.state = 68
+            self.match(cflatParser.T__2)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

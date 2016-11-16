@@ -1,11 +1,5 @@
-423123;
-"amelkemfl";
-true;
-int in_t;
-string hi;
-{hi="123123";
- hi;
-    123123;
-    "aaaa";
-123123;
-}
+1+2;
+3;
+"hiadfa"
+int a=3;
+a=2;

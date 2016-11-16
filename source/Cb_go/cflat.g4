@@ -7,30 +7,52 @@ run
 
 //전체적인 틀, 구조
 frame
-    : (line|brace_group)+
+    : group+
     ;
-
+/*
 //제어문
+statement
+    : iterationStatement
+    | selectionStatement
+    ;
 // - 반복문
 iterationStatement
-    :   'while' '(' Calculator_logic ')' brace_group
-    |   'do' brace_group 'while' '(' Calculator_logic ')' ';'
-    |   'for' '(' (Calculator_logic|Assignment)? ';' Calculator_logic? ';' (Calculator_logic|Assignment)? ')' brace_group
+    :   While Leftparen Calculator_logic Rightparen group
+    |   'do' group While Leftparen Calculator_logic Rightparen Semi
+    |   'for' Leftparen (Calculator_logic|Assignment)? Semi 
+                Calculator_logic? Semi 
+                (Calculator_logic|Assignment)? 
+                Rightparen group
     ;
 // - 조건문
 selectionStatement
-    :   'if' '(' Calculator_logic ')' brace_group ('else' brace_group)?
-    |   'switch' '(' Calculator_logic ')' brace_group
+    :   'if' '(' Calculator_logic ')' group ('else' group)?
+    |   'switch' '(' Calculator_logic ')' Leftbrace switch_group+ Rightbrace
     ;
 // - - switch 그룹
 switch_group
-    : Case value Colon line* Break?
-    : Default Colon line* Break?
+    : (
+        Case Value
+        | Default
+      ) Colon line* (Break|RETURN)?
+    ;
+// - 이동제어
+jumpStatement
+    :   Continue
+    |   Break
+    |   RETURN Value?
+    ;
+ */
+//하위 영역 (if, while, function 등)
+group
+    : brace_group
+//    | statement
+    | line
+    ;
 
 //영역(그룹)
 brace_group
-    : Leftbrace (line|brace_group)* Rightbrace
-    | line
+    : Leftbrace group* Rightbrace
     ;
 
 //한줄 끝
@@ -45,13 +67,13 @@ action_end
 
 actions
     : action (Coma action)*
+//    | jumpStatement
     ;
 
 action
     : Initialisation
     | Assignment
     | Declaration
-    | Value
     | Calculator
     ;
 
@@ -62,7 +84,7 @@ Initialisation
 
 //대입
 Assignment
-    : Valiable Assign ( Value | Valiable )
+    : Valiable Assign ( Calculator | Valiable )
     ;
 
 //선언
@@ -75,7 +97,6 @@ Value
     | Val_string
     | Val_boolean
     | Val_void
-    | Calculator
     | Valiable
     ;
 
@@ -84,6 +105,7 @@ Calculator
     : Calculator_bit
     | Calculator_logic
     | Calculator_pmad
+    | Value
     ;
 // - 사칙연산
 Calculator_pmad
@@ -96,8 +118,8 @@ Calculator_bit
     ;
 // - 논리연산
 Calculator_logic
-    : (TRUE|FALSE) (Andand|Oror|Equal|Notequal|Less|Lessequal|Greater|Greaterequal) (TRUE|FALSE)
-    | Not (TRUE|FALSE)
+    : Value (Logic Value)?
+    | Not Value
     ;
 
 //변수명
@@ -142,6 +164,7 @@ Void : 'void' ;
 //상수
 TRUE : ('true'|'Ture'|'TRUE') ;
 FALSE : ('false'|'False'|'FALSE') ;
+NULL : ('null'|'NULL'|'Null');
 
 //연산자
 // - 산술
@@ -153,11 +176,30 @@ Asterisk : '*' ;
 Div : '/' ;
 percent : '%' ;
 // - 논리, 비트
+Bit
+    : And
+    | Or
+    | Caret
+    | Leftshift
+    | Rightshift
+    ;
 And : '&' ;
-Andand : '&&' ;
 Or : '|' ;
-Oror : '||' ;
 Caret : '^' ;
+Leftshift : '<<' ;
+Rightshift : '>>' ;
+Logic
+    : Andand
+    | Oror
+    | Equal
+    | Notequal
+    | Less
+    | Lessequal
+    | Greater
+    | Greaterequal
+    ;
+Andand : '&&' ;
+Oror : '||' ;
 Not : '!' ;
 Equal : '==' ;
 Notequal : '!=' ;
@@ -165,8 +207,6 @@ Less : '<' ;
 Lessequal : '<=' ;
 Greater : '>' ;
 Greaterequal : '>=' ;
-Leftshift : '<<' ;
-Rightshift : '>>' ;
 // - 그 외 기호
 Assign : '=' ;
 Dot : '.' ;
