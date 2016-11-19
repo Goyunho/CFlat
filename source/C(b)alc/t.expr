@@ -1,5 +1,7 @@
 193
-a = 5
+a = 5*2
 b = 6
+c_1 = a*b
 a+b*2
 (1+2)*3
+print(c_1), print(b), print(a+13)

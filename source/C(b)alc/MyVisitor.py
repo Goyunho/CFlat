@@ -1,10 +1,10 @@
 __author__ = 'jszheng'
 
-from LabeledExprVisitor import LabeledExprVisitor
-from LabeledExprParser import LabeledExprParser
+from CbalcVisitor import CbalcVisitor
+from CbalcParser import CbalcParser
 
 
-class MyVisitor(LabeledExprVisitor):
+class MyVisitor(CbalcVisitor):
     def __init__(self):
         self.memory = {}
 
@@ -15,6 +15,11 @@ class MyVisitor(LabeledExprVisitor):
         return value
 
     def visitPrintExpr(self, ctx):
+        value = self.visit(ctx.expr())
+        print(value)
+        return 0
+
+    def visitShowme(self, ctx):
         value = self.visit(ctx.expr())
         print(value)
         return 0
@@ -31,14 +36,14 @@ class MyVisitor(LabeledExprVisitor):
     def visitMulDiv(self, ctx):
         left = int(self.visit(ctx.expr(0)))
         right = int(self.visit(ctx.expr(1)))
-        if ctx.op.type == LabeledExprParser.MUL:
+        if ctx.op.type == CbalcParser.MUL:
             return left * right
         return left / right
 
     def visitAddSub(self, ctx):
         left = int(self.visit(ctx.expr(0)))
         right = int(self.visit(ctx.expr(1)))
-        if ctx.op.type == LabeledExprParser.ADD:
+        if ctx.op.type == CbalcParser.ADD:
             return left + right
         return left - right
 
