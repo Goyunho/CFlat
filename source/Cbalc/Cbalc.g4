@@ -1,7 +1,7 @@
 grammar Cbalc; 
 
 //prog:   stat+ EOF ;
-prog:   line+ ;
+prog:   line+;
 
 //라인 종료
 line : mulstat NEWLINE ;
@@ -10,10 +10,10 @@ line : mulstat NEWLINE ;
 mulstat: stat (',' stat)* ;
 
 //행동 정의
-stat:   expr                 # lavel_no
-    |   showme               # lavel_no
+stat:   expr                 # lavel_no1
+    |   showme               # lavel_no1
     |   ID '=' expr          # assign
-    |   NEWLINE                     # blank
+    |   NEWLINE              # blank
     ;
 
 //print 함수 만듦
@@ -24,8 +24,9 @@ showme
 //value
 expr:   expr op=('*'|'/') expr      # MulDiv
     |   expr op=('+'|'-') expr      # AddSub
-    |   INT                         # int
+    |   NUMBER                      # number
     |   ID                          # id
+    |   STRING                      # string
     |   '(' expr ')'                # parens
     ;
 
@@ -36,8 +37,15 @@ MUL :   '*' ; // assigns token name to '*' used above in grammar
 DIV :   '/' ;
 ADD :   '+' ;
 SUB :   '-' ;
+STRING : '"' .*? '"' ;  //문자열
+NUMBER 
+    : INT
+    | FLAOT
+    ;
 WORD:   [a-zA-Z]+ ;      // match identifiers
-//FLAOT : INT '.' INT
+FLAOT : INT '.' INT ;     // match flaot
 INT :   [0-9]+ ;         // match integers
 NEWLINE:'\r'? '\n' ;     // return newlines to parser (is end-statement signal)
 WS  :   [ \t]+ -> skip ; // toss out whitespace
+COMMENT_LINE : '//' .*? NEWLINE -> skip ; // comment_line
+COMMENT_MULLINE : '/*' .*? '*/' -> skip ; // comment_mulline

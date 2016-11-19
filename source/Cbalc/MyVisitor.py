@@ -3,6 +3,11 @@ __author__ = 'jszheng'
 from CbalcVisitor import CbalcVisitor
 from CbalcParser import CbalcParser
 
+def number(num): # 정수면 정수반환 실수면 실수반환
+    try:
+        return int(num)
+    except:
+        return float(num)
 
 class MyVisitor(CbalcVisitor):
     def __init__(self):
@@ -14,18 +19,16 @@ class MyVisitor(CbalcVisitor):
         self.memory[name] = value
         return value
 
-    def visitPrintExpr(self, ctx):
-        value = self.visit(ctx.expr())
-        print(value)
-        return 0
-
     def visitShowme(self, ctx):
         value = self.visit(ctx.expr())
         print(value)
         return 0
 
-    def visitInt(self, ctx):
-        return ctx.INT().getText()
+    def visitNumber(self, ctx):
+        return ctx.NUMBER().getText()
+    
+    def visitString(self, ctx):
+        return ctx.STRING().getText()[1:-1]
 
     def visitId(self, ctx):
         name = ctx.ID().getText()
@@ -34,15 +37,23 @@ class MyVisitor(CbalcVisitor):
         return 0
 
     def visitMulDiv(self, ctx):
-        left = int(self.visit(ctx.expr(0)))
-        right = int(self.visit(ctx.expr(1)))
+        try :
+            left = number(self.visit(ctx.expr(0)))
+        except :
+            left = self.visit(ctx.expr(0))
+        try :
+            right = number(self.visit(ctx.expr(1)))
+        except : 
+            right = self.visit(ctx.expr(1))
         if ctx.op.type == CbalcParser.MUL:
             return left * right
         return left / right
 
     def visitAddSub(self, ctx):
-        left = int(self.visit(ctx.expr(0)))
-        right = int(self.visit(ctx.expr(1)))
+        try :
+            left, right = number(self.visit(ctx.expr(0))), number(self.visit(ctx.expr(1)))
+        except :
+            left, right = self.visit(ctx.expr(0)), self.visit(ctx.expr(1)) 
         if ctx.op.type == CbalcParser.ADD:
             return left + right
         return left - right
