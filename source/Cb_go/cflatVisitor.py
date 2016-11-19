@@ -49,6 +49,46 @@ class cflatVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by cflatParser#initialisation.
+    def visitInitialisation(self, ctx:cflatParser.InitialisationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#assignment.
+    def visitAssignment(self, ctx:cflatParser.AssignmentContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#declaration.
+    def visitDeclaration(self, ctx:cflatParser.DeclarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#calculator.
+    def visitCalculator(self, ctx:cflatParser.CalculatorContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#AddSub.
+    def visitAddSub(self, ctx:cflatParser.AddSubContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#MulDiv.
+    def visitMulDiv(self, ctx:cflatParser.MulDivContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#Cal_Bit.
+    def visitCal_Bit(self, ctx:cflatParser.Cal_BitContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by cflatParser#calculator_logic.
+    def visitCalculator_logic(self, ctx:cflatParser.Calculator_logicContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by cflatParser#increase.
     def visitIncrease(self, ctx:cflatParser.IncreaseContext):
         return self.visitChildren(ctx)

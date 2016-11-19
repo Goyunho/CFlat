@@ -71,24 +71,24 @@ actions
     ;
 
 action
-    : Initialisation
-    | Assignment
-    | Declaration
-    | Calculator
+    : initialisation
+    | assignment
+    | declaration
+    | calculator
     ;
 
 //초기화
-Initialisation
-    : Type Assignment
+initialisation
+    : Type assignment
     ;
 
 //대입
-Assignment
-    : Valiable Assign ( Calculator | Valiable )
+assignment
+    : Valiable Assign (calculator | Valiable )
     ;
 
 //선언
-Declaration : Type Whitespace Valiable ;
+declaration : Type Valiable ;
 
 //값 구분
 Value
@@ -101,23 +101,23 @@ Value
     ;
 
 //연산
-Calculator
-    : Calculator_bit
-    | Calculator_logic
-    | Calculator_pmad
+calculator
+    : calculator_bit
+    | calculator_logic
+    | calculator_pmad
     | Value
     ;
 // - 사칙연산
-Calculator_pmad
-    : (Val_int|Val_float) (Plus|Minus) (Val_int|Val_float|Calculator_pmad)
-    | (Val_int|Val_float) (Asterisk|Div) (Val_int|Val_float|Calculator_pmad)
+calculator_pmad
+    : (Val_int|Val_float) op=(Plus|Minus) (Val_int|Val_float|calculator_pmad)      # AddSub
+    | (Val_int|Val_float) op=(Asterisk|Div) (Val_int|Val_float|calculator_pmad)    # MulDiv
     ;
 // - 비트연산
-Calculator_bit
-    : Val_int (And|Or|Caret) Val_int
+calculator_bit
+    : Val_int Bit Val_int    # Cal_Bit
     ;
 // - 논리연산
-Calculator_logic
+calculator_logic
     : Value (Logic Value)?
     | Not Value
     ;
