@@ -1,10 +1,9 @@
 grammar Cbalc; 
 
-//prog:   stat+ EOF ;
-prog:   line+;
+prog:   line+ ;
 
 //라인 종료
-line : mulstat NEWLINE ;
+line : mulstat? NEWLINE ;
 
 //stat 연결
 mulstat: stat (',' stat)* ;
@@ -13,7 +12,7 @@ mulstat: stat (',' stat)* ;
 stat:   expr                 # lavel_no1
     |   showme               # lavel_no1
     |   ID '=' expr          # assign
-    |   NEWLINE              # blank
+    |   EOF                  # lavel_no1
     ;
 
 //print 함수 만듦

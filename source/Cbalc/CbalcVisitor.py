@@ -34,11 +34,6 @@ class CbalcVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CbalcParser#blank.
-    def visitBlank(self, ctx:CbalcParser.BlankContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by CbalcParser#showme.
     def visitShowme(self, ctx:CbalcParser.ShowmeContext):
         return self.visitChildren(ctx)

@@ -7,27 +7,27 @@ def serializedATN():
     with StringIO() as buf:
         buf.write("\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\25")
         buf.write("B\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2")
-        buf.write("\6\2\20\n\2\r\2\16\2\21\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3")
-        buf.write("\4\7\4\34\n\4\f\4\16\4\37\13\4\3\5\3\5\3\5\3\5\3\5\3\5")
-        buf.write("\5\5\'\n\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3\7")
-        buf.write("\3\7\5\7\65\n\7\3\7\3\7\3\7\3\7\3\7\3\7\7\7=\n\7\f\7\16")
-        buf.write("\7@\13\7\3\7\2\3\f\b\2\4\6\b\n\f\2\4\3\2\t\n\3\2\13\f")
-        buf.write("E\2\17\3\2\2\2\4\25\3\2\2\2\6\30\3\2\2\2\b&\3\2\2\2\n")
-        buf.write("(\3\2\2\2\f\64\3\2\2\2\16\20\5\4\3\2\17\16\3\2\2\2\20")
-        buf.write("\21\3\2\2\2\21\17\3\2\2\2\21\22\3\2\2\2\22\23\3\2\2\2")
-        buf.write("\23\24\7\2\2\3\24\3\3\2\2\2\25\26\5\6\4\2\26\27\7\22\2")
-        buf.write("\2\27\5\3\2\2\2\30\35\5\b\5\2\31\32\7\3\2\2\32\34\5\b")
-        buf.write("\5\2\33\31\3\2\2\2\34\37\3\2\2\2\35\33\3\2\2\2\35\36\3")
-        buf.write("\2\2\2\36\7\3\2\2\2\37\35\3\2\2\2 \'\5\f\7\2!\'\5\n\6")
-        buf.write("\2\"#\7\b\2\2#$\7\4\2\2$\'\5\f\7\2%\'\7\22\2\2& \3\2\2")
-        buf.write("\2&!\3\2\2\2&\"\3\2\2\2&%\3\2\2\2\'\t\3\2\2\2()\7\5\2")
-        buf.write("\2)*\5\f\7\2*+\7\6\2\2+\13\3\2\2\2,-\b\7\1\2-\65\7\16")
-        buf.write("\2\2.\65\7\b\2\2/\65\7\r\2\2\60\61\7\7\2\2\61\62\5\f\7")
-        buf.write("\2\62\63\7\6\2\2\63\65\3\2\2\2\64,\3\2\2\2\64.\3\2\2\2")
-        buf.write("\64/\3\2\2\2\64\60\3\2\2\2\65>\3\2\2\2\66\67\f\b\2\2\67")
-        buf.write("8\t\2\2\28=\5\f\7\t9:\f\7\2\2:;\t\3\2\2;=\5\f\7\b<\66")
-        buf.write("\3\2\2\2<9\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2\2\2?\r\3")
-        buf.write("\2\2\2@>\3\2\2\2\b\21\35&\64<>")
+        buf.write("\6\2\20\n\2\r\2\16\2\21\3\3\5\3\25\n\3\3\3\3\3\3\4\3\4")
+        buf.write("\3\4\7\4\34\n\4\f\4\16\4\37\13\4\3\5\3\5\3\5\3\5\3\5\3")
+        buf.write("\5\5\5\'\n\5\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3\7\3")
+        buf.write("\7\3\7\5\7\65\n\7\3\7\3\7\3\7\3\7\3\7\3\7\7\7=\n\7\f\7")
+        buf.write("\16\7@\13\7\3\7\2\3\f\b\2\4\6\b\n\f\2\4\3\2\t\n\3\2\13")
+        buf.write("\fF\2\17\3\2\2\2\4\24\3\2\2\2\6\30\3\2\2\2\b&\3\2\2\2")
+        buf.write("\n(\3\2\2\2\f\64\3\2\2\2\16\20\5\4\3\2\17\16\3\2\2\2\20")
+        buf.write("\21\3\2\2\2\21\17\3\2\2\2\21\22\3\2\2\2\22\3\3\2\2\2\23")
+        buf.write("\25\5\6\4\2\24\23\3\2\2\2\24\25\3\2\2\2\25\26\3\2\2\2")
+        buf.write("\26\27\7\22\2\2\27\5\3\2\2\2\30\35\5\b\5\2\31\32\7\3\2")
+        buf.write("\2\32\34\5\b\5\2\33\31\3\2\2\2\34\37\3\2\2\2\35\33\3\2")
+        buf.write("\2\2\35\36\3\2\2\2\36\7\3\2\2\2\37\35\3\2\2\2 \'\5\f\7")
+        buf.write("\2!\'\5\n\6\2\"#\7\b\2\2#$\7\4\2\2$\'\5\f\7\2%\'\7\2\2")
+        buf.write("\3& \3\2\2\2&!\3\2\2\2&\"\3\2\2\2&%\3\2\2\2\'\t\3\2\2")
+        buf.write("\2()\7\5\2\2)*\5\f\7\2*+\7\6\2\2+\13\3\2\2\2,-\b\7\1\2")
+        buf.write("-\65\7\16\2\2.\65\7\b\2\2/\65\7\r\2\2\60\61\7\7\2\2\61")
+        buf.write("\62\5\f\7\2\62\63\7\6\2\2\63\65\3\2\2\2\64,\3\2\2\2\64")
+        buf.write(".\3\2\2\2\64/\3\2\2\2\64\60\3\2\2\2\65>\3\2\2\2\66\67")
+        buf.write("\f\b\2\2\678\t\2\2\28=\5\f\7\t9:\f\7\2\2:;\t\3\2\2;=\5")
+        buf.write("\f\7\b<\66\3\2\2\2<9\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2")
+        buf.write("\2\2?\r\3\2\2\2@>\3\2\2\2\t\21\24\35&\64<>")
         return buf.getvalue()
 
 
@@ -93,9 +93,6 @@ class CbalcParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def EOF(self):
-            return self.getToken(CbalcParser.EOF, 0)
-
         def line(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(CbalcParser.LineContext)
@@ -119,23 +116,22 @@ class CbalcParser ( Parser ):
 
         localctx = CbalcParser.ProgContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_prog)
-        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 13 
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while True:
-                self.state = 12
-                self.line()
+            _alt = 1
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt == 1:
+                    self.state = 12
+                    self.line()
+
+                else:
+                    raise NoViableAltException(self)
                 self.state = 15 
                 self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CbalcParser.T__2) | (1 << CbalcParser.T__4) | (1 << CbalcParser.ID) | (1 << CbalcParser.STRING) | (1 << CbalcParser.NUMBER) | (1 << CbalcParser.NEWLINE))) != 0)):
-                    break
+                _alt = self._interp.adaptivePredict(self._input,0,self._ctx)
 
-            self.state = 17
-            self.match(CbalcParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -150,12 +146,12 @@ class CbalcParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+        def NEWLINE(self):
+            return self.getToken(CbalcParser.NEWLINE, 0)
+
         def mulstat(self):
             return self.getTypedRuleContext(CbalcParser.MulstatContext,0)
 
-
-        def NEWLINE(self):
-            return self.getToken(CbalcParser.NEWLINE, 0)
 
         def getRuleIndex(self):
             return CbalcParser.RULE_line
@@ -173,10 +169,16 @@ class CbalcParser ( Parser ):
 
         localctx = CbalcParser.LineContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_line)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 19
-            self.mulstat()
+            self.state = 18
+            _la = self._input.LA(1)
+            if ((((_la - -1)) & ~0x3f) == 0 and ((1 << (_la - -1)) & ((1 << (CbalcParser.EOF - -1)) | (1 << (CbalcParser.T__2 - -1)) | (1 << (CbalcParser.T__4 - -1)) | (1 << (CbalcParser.ID - -1)) | (1 << (CbalcParser.STRING - -1)) | (1 << (CbalcParser.NUMBER - -1)))) != 0):
+                self.state = 17
+                self.mulstat()
+
+
             self.state = 20
             self.match(CbalcParser.NEWLINE)
         except RecognitionException as re:
@@ -269,26 +271,12 @@ class CbalcParser ( Parser ):
         def showme(self):
             return self.getTypedRuleContext(CbalcParser.ShowmeContext,0)
 
+        def EOF(self):
+            return self.getToken(CbalcParser.EOF, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitLavel_no1" ):
                 return visitor.visitLavel_no1(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-    class BlankContext(StatContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.StatContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def NEWLINE(self):
-            return self.getToken(CbalcParser.NEWLINE, 0)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitBlank" ):
-                return visitor.visitBlank(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -320,7 +308,7 @@ class CbalcParser ( Parser ):
         try:
             self.state = 36
             self._errHandler.sync(self);
-            la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
                 localctx = CbalcParser.Lavel_no1Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
@@ -347,10 +335,10 @@ class CbalcParser ( Parser ):
                 pass
 
             elif la_ == 4:
-                localctx = CbalcParser.BlankContext(self, localctx)
+                localctx = CbalcParser.Lavel_no1Context(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 35
-                self.match(CbalcParser.NEWLINE)
+                self.match(CbalcParser.EOF)
                 pass
 
 
@@ -578,7 +566,7 @@ class CbalcParser ( Parser ):
             self._ctx.stop = self._input.LT(-1)
             self.state = 60
             self._errHandler.sync(self)
-            _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
+            _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt==1:
                     if self._parseListeners is not None:
@@ -586,7 +574,7 @@ class CbalcParser ( Parser ):
                     _prevctx = localctx
                     self.state = 58
                     self._errHandler.sync(self);
-                    la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
+                    la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
                     if la_ == 1:
                         localctx = CbalcParser.MulDivContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
@@ -626,7 +614,7 @@ class CbalcParser ( Parser ):
              
                 self.state = 62
                 self._errHandler.sync(self)
-                _alt = self._interp.adaptivePredict(self._input,5,self._ctx)
+                _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
