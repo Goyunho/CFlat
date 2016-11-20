@@ -9,6 +9,7 @@ from tkinter import *
 class IDE(Tk):
     def __init__(self):
         super().__init__()
+        os.chdir("source/Cbalc")
         self.setUI()
         self.event()
 

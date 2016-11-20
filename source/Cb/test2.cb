@@ -1,6 +1,0 @@
-int main()
-{
-	int i=x;
-
-	return 0;
-}
