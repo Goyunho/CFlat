@@ -1,1 +1,1 @@
-cd source\Cb
+cd source\Cbalc

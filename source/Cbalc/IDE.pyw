@@ -9,7 +9,10 @@ from tkinter import *
 class IDE(Tk):
     def __init__(self):
         super().__init__()
-        os.chdir("source/Cbalc")
+        try:
+            os.chdir("source/Cbalc")
+        except:
+            pass
         self.setUI()
         self.event()
 

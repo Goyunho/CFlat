@@ -39,11 +39,6 @@ class CbalcVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by CbalcParser#number.
-    def visitNumber(self, ctx:CbalcParser.NumberContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by CbalcParser#parens.
     def visitParens(self, ctx:CbalcParser.ParensContext):
         return self.visitChildren(ctx)
@@ -64,8 +59,48 @@ class CbalcVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by CbalcParser#logicOperOr.
+    def visitLogicOperOr(self, ctx:CbalcParser.LogicOperOrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#CompOper2.
+    def visitCompOper2(self, ctx:CbalcParser.CompOper2Context):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#BitOper.
+    def visitBitOper(self, ctx:CbalcParser.BitOperContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#CompOper.
+    def visitCompOper(self, ctx:CbalcParser.CompOperContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#number.
+    def visitNumber(self, ctx:CbalcParser.NumberContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#SingleOper.
+    def visitSingleOper(self, ctx:CbalcParser.SingleOperContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#logicOperAnd.
+    def visitLogicOperAnd(self, ctx:CbalcParser.LogicOperAndContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by CbalcParser#id.
     def visitId(self, ctx:CbalcParser.IdContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by CbalcParser#ShiftOper.
+    def visitShiftOper(self, ctx:CbalcParser.ShiftOperContext):
         return self.visitChildren(ctx)
 
 
