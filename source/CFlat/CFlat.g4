@@ -1,4 +1,4 @@
-grammar Cbalc; 
+grammar CFlat; 
 
 prog:   line+ ;
 

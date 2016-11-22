@@ -1,10 +1,8 @@
-__author__ = 'jszheng'
-
 import sys
 from antlr4 import *
 from antlr4.InputStream import InputStream
-from CbalcLexer import CbalcLexer
-from CbalcParser import CbalcParser
+from CFlatLexer import CFlatLexer
+from CFlatParser import CFlatParser
 from MyVisitor import MyVisitor
 
 if __name__ == '__main__':
@@ -13,9 +11,9 @@ if __name__ == '__main__':
     else:
         input_stream = InputStream(sys.stdin.readline())
 
-    lexer = CbalcLexer(input_stream)
+    lexer = CFlatLexer(input_stream)
     token_stream = CommonTokenStream(lexer)
-    parser = CbalcParser(token_stream)
+    parser = CFlatParser(token_stream)
     tree = parser.prog()
 
     #lisp_tree_str = tree.toStringTree(recog=parser)

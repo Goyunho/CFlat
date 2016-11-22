@@ -1,7 +1,5 @@
-__author__ = 'jszheng'
-
-from CbalcVisitor import CbalcVisitor
-from CbalcParser import CbalcParser
+from CFlatVisitor import CFlatVisitor
+from CFlatParser import CFlatParser
 
 def number(num): # 정수면 정수반환 실수면 실수반환
     try:
@@ -9,7 +7,7 @@ def number(num): # 정수면 정수반환 실수면 실수반환
     except:
         return float(num)
 
-class MyVisitor(CbalcVisitor):
+class MyVisitor(CFlatVisitor):
     def __init__(self):
         self.memory = {}
 

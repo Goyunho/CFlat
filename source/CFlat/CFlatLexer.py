@@ -1,4 +1,4 @@
-# Generated from Cbalc.g4 by ANTLR 4.5.3
+# Generated from CFlat.g4 by ANTLR 4.5.3
 from antlr4 import *
 from io import StringIO
 
@@ -93,7 +93,7 @@ def serializedATN():
         return buf.getvalue()
 
 
-class CbalcLexer(Lexer):
+class CFlatLexer(Lexer):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -154,7 +154,7 @@ class CbalcLexer(Lexer):
                   "SUB", "AMP", "STRING", "NUMBER", "WORD", "FLAOT", "INT", 
                   "NEWLINE", "WS", "COMMENT_LINE", "COMMENT_MULLINE" ]
 
-    grammarFileName = "Cbalc.g4"
+    grammarFileName = "CFlat.g4"
 
     def __init__(self, input=None):
         super().__init__(input)

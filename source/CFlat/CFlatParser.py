@@ -1,4 +1,4 @@
-# Generated from Cbalc.g4 by ANTLR 4.5.3
+# Generated from CFlat.g4 by ANTLR 4.5.3
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -39,9 +39,9 @@ def serializedATN():
         return buf.getvalue()
 
 
-class CbalcParser ( Parser ):
+class CFlatParser ( Parser ):
 
-    grammarFileName = "Cbalc.g4"
+    grammarFileName = "CFlat.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -122,13 +122,13 @@ class CbalcParser ( Parser ):
 
         def line(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.LineContext)
+                return self.getTypedRuleContexts(CFlatParser.LineContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.LineContext,i)
+                return self.getTypedRuleContext(CFlatParser.LineContext,i)
 
 
         def getRuleIndex(self):
-            return CbalcParser.RULE_prog
+            return CFlatParser.RULE_prog
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitProg" ):
@@ -141,7 +141,7 @@ class CbalcParser ( Parser ):
 
     def prog(self):
 
-        localctx = CbalcParser.ProgContext(self, self._ctx, self.state)
+        localctx = CFlatParser.ProgContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_prog)
         try:
             self.enterOuterAlt(localctx, 1)
@@ -174,14 +174,14 @@ class CbalcParser ( Parser ):
             self.parser = parser
 
         def NEWLINE(self):
-            return self.getToken(CbalcParser.NEWLINE, 0)
+            return self.getToken(CFlatParser.NEWLINE, 0)
 
         def mulstat(self):
-            return self.getTypedRuleContext(CbalcParser.MulstatContext,0)
+            return self.getTypedRuleContext(CFlatParser.MulstatContext,0)
 
 
         def getRuleIndex(self):
-            return CbalcParser.RULE_line
+            return CFlatParser.RULE_line
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitLine" ):
@@ -194,20 +194,20 @@ class CbalcParser ( Parser ):
 
     def line(self):
 
-        localctx = CbalcParser.LineContext(self, self._ctx, self.state)
+        localctx = CFlatParser.LineContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_line)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 18
             _la = self._input.LA(1)
-            if ((((_la - -1)) & ~0x3f) == 0 and ((1 << (_la - -1)) & ((1 << (CbalcParser.EOF - -1)) | (1 << (CbalcParser.T__2 - -1)) | (1 << (CbalcParser.T__4 - -1)) | (1 << (CbalcParser.ID - -1)) | (1 << (CbalcParser.NOT - -1)) | (1 << (CbalcParser.SUB - -1)) | (1 << (CbalcParser.STRING - -1)) | (1 << (CbalcParser.NUMBER - -1)))) != 0):
+            if ((((_la - -1)) & ~0x3f) == 0 and ((1 << (_la - -1)) & ((1 << (CFlatParser.EOF - -1)) | (1 << (CFlatParser.T__2 - -1)) | (1 << (CFlatParser.T__4 - -1)) | (1 << (CFlatParser.ID - -1)) | (1 << (CFlatParser.NOT - -1)) | (1 << (CFlatParser.SUB - -1)) | (1 << (CFlatParser.STRING - -1)) | (1 << (CFlatParser.NUMBER - -1)))) != 0):
                 self.state = 17
                 self.mulstat()
 
 
             self.state = 20
-            self.match(CbalcParser.NEWLINE)
+            self.match(CFlatParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -224,13 +224,13 @@ class CbalcParser ( Parser ):
 
         def stat(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.StatContext)
+                return self.getTypedRuleContexts(CFlatParser.StatContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.StatContext,i)
+                return self.getTypedRuleContext(CFlatParser.StatContext,i)
 
 
         def getRuleIndex(self):
-            return CbalcParser.RULE_mulstat
+            return CFlatParser.RULE_mulstat
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitMulstat" ):
@@ -243,7 +243,7 @@ class CbalcParser ( Parser ):
 
     def mulstat(self):
 
-        localctx = CbalcParser.MulstatContext(self, self._ctx, self.state)
+        localctx = CFlatParser.MulstatContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_mulstat)
         self._la = 0 # Token type
         try:
@@ -253,9 +253,9 @@ class CbalcParser ( Parser ):
             self.state = 27
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==CbalcParser.T__0:
+            while _la==CFlatParser.T__0:
                 self.state = 23
-                self.match(CbalcParser.T__0)
+                self.match(CFlatParser.T__0)
                 self.state = 24
                 self.stat()
                 self.state = 29
@@ -278,7 +278,7 @@ class CbalcParser ( Parser ):
 
 
         def getRuleIndex(self):
-            return CbalcParser.RULE_stat
+            return CFlatParser.RULE_stat
 
      
         def copyFrom(self, ctx:ParserRuleContext):
@@ -288,18 +288,18 @@ class CbalcParser ( Parser ):
 
     class Lavel_no1Context(StatContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.StatContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.StatContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def expr(self):
-            return self.getTypedRuleContext(CbalcParser.ExprContext,0)
+            return self.getTypedRuleContext(CFlatParser.ExprContext,0)
 
         def showme(self):
-            return self.getTypedRuleContext(CbalcParser.ShowmeContext,0)
+            return self.getTypedRuleContext(CFlatParser.ShowmeContext,0)
 
         def EOF(self):
-            return self.getToken(CbalcParser.EOF, 0)
+            return self.getToken(CFlatParser.EOF, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitLavel_no1" ):
@@ -310,14 +310,14 @@ class CbalcParser ( Parser ):
 
     class AssignContext(StatContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.StatContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.StatContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def ID(self):
-            return self.getToken(CbalcParser.ID, 0)
+            return self.getToken(CFlatParser.ID, 0)
         def expr(self):
-            return self.getTypedRuleContext(CbalcParser.ExprContext,0)
+            return self.getTypedRuleContext(CFlatParser.ExprContext,0)
 
 
         def accept(self, visitor:ParseTreeVisitor):
@@ -330,42 +330,42 @@ class CbalcParser ( Parser ):
 
     def stat(self):
 
-        localctx = CbalcParser.StatContext(self, self._ctx, self.state)
+        localctx = CFlatParser.StatContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_stat)
         try:
             self.state = 36
             self._errHandler.sync(self);
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
-                localctx = CbalcParser.Lavel_no1Context(self, localctx)
+                localctx = CFlatParser.Lavel_no1Context(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 30
                 self.expr(0)
                 pass
 
             elif la_ == 2:
-                localctx = CbalcParser.Lavel_no1Context(self, localctx)
+                localctx = CFlatParser.Lavel_no1Context(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 31
                 self.showme()
                 pass
 
             elif la_ == 3:
-                localctx = CbalcParser.AssignContext(self, localctx)
+                localctx = CFlatParser.AssignContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 32
-                self.match(CbalcParser.ID)
+                self.match(CFlatParser.ID)
                 self.state = 33
-                self.match(CbalcParser.T__1)
+                self.match(CFlatParser.T__1)
                 self.state = 34
                 self.expr(0)
                 pass
 
             elif la_ == 4:
-                localctx = CbalcParser.Lavel_no1Context(self, localctx)
+                localctx = CFlatParser.Lavel_no1Context(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 35
-                self.match(CbalcParser.EOF)
+                self.match(CFlatParser.EOF)
                 pass
 
 
@@ -384,11 +384,11 @@ class CbalcParser ( Parser ):
             self.parser = parser
 
         def expr(self):
-            return self.getTypedRuleContext(CbalcParser.ExprContext,0)
+            return self.getTypedRuleContext(CFlatParser.ExprContext,0)
 
 
         def getRuleIndex(self):
-            return CbalcParser.RULE_showme
+            return CFlatParser.RULE_showme
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitShowme" ):
@@ -401,16 +401,16 @@ class CbalcParser ( Parser ):
 
     def showme(self):
 
-        localctx = CbalcParser.ShowmeContext(self, self._ctx, self.state)
+        localctx = CFlatParser.ShowmeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_showme)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 38
-            self.match(CbalcParser.T__2)
+            self.match(CFlatParser.T__2)
             self.state = 39
             self.expr(0)
             self.state = 40
-            self.match(CbalcParser.T__3)
+            self.match(CFlatParser.T__3)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -427,7 +427,7 @@ class CbalcParser ( Parser ):
 
 
         def getRuleIndex(self):
-            return CbalcParser.RULE_expr
+            return CFlatParser.RULE_expr
 
      
         def copyFrom(self, ctx:ParserRuleContext):
@@ -436,12 +436,12 @@ class CbalcParser ( Parser ):
 
     class ParensContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def expr(self):
-            return self.getTypedRuleContext(CbalcParser.ExprContext,0)
+            return self.getTypedRuleContext(CFlatParser.ExprContext,0)
 
 
         def accept(self, visitor:ParseTreeVisitor):
@@ -453,12 +453,12 @@ class CbalcParser ( Parser ):
 
     class StringContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def STRING(self):
-            return self.getToken(CbalcParser.STRING, 0)
+            return self.getToken(CFlatParser.STRING, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitString" ):
@@ -469,16 +469,16 @@ class CbalcParser ( Parser ):
 
     class MulDivContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
 
         def accept(self, visitor:ParseTreeVisitor):
@@ -490,16 +490,16 @@ class CbalcParser ( Parser ):
 
     class AddSubContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
 
         def accept(self, visitor:ParseTreeVisitor):
@@ -511,18 +511,18 @@ class CbalcParser ( Parser ):
 
     class LogicOperOrContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
         def OR2(self):
-            return self.getToken(CbalcParser.OR2, 0)
+            return self.getToken(CFlatParser.OR2, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitLogicOperOr" ):
@@ -533,21 +533,21 @@ class CbalcParser ( Parser ):
 
     class CompOper2Context(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
         def EQL(self):
-            return self.getToken(CbalcParser.EQL, 0)
+            return self.getToken(CFlatParser.EQL, 0)
         def NEQ(self):
-            return self.getToken(CbalcParser.NEQ, 0)
+            return self.getToken(CFlatParser.NEQ, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitCompOper2" ):
@@ -558,23 +558,23 @@ class CbalcParser ( Parser ):
 
     class BitOperContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
         def AND(self):
-            return self.getToken(CbalcParser.AND, 0)
+            return self.getToken(CFlatParser.AND, 0)
         def XOR(self):
-            return self.getToken(CbalcParser.XOR, 0)
+            return self.getToken(CFlatParser.XOR, 0)
         def OR(self):
-            return self.getToken(CbalcParser.OR, 0)
+            return self.getToken(CFlatParser.OR, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitBitOper" ):
@@ -585,25 +585,25 @@ class CbalcParser ( Parser ):
 
     class CompOperContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
         def GRT(self):
-            return self.getToken(CbalcParser.GRT, 0)
+            return self.getToken(CFlatParser.GRT, 0)
         def GRE(self):
-            return self.getToken(CbalcParser.GRE, 0)
+            return self.getToken(CFlatParser.GRE, 0)
         def LES(self):
-            return self.getToken(CbalcParser.LES, 0)
+            return self.getToken(CFlatParser.LES, 0)
         def LEE(self):
-            return self.getToken(CbalcParser.LEE, 0)
+            return self.getToken(CFlatParser.LEE, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitCompOper" ):
@@ -614,12 +614,12 @@ class CbalcParser ( Parser ):
 
     class NumberContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def NUMBER(self):
-            return self.getToken(CbalcParser.NUMBER, 0)
+            return self.getToken(CFlatParser.NUMBER, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitNumber" ):
@@ -630,18 +630,18 @@ class CbalcParser ( Parser ):
 
     class SingleOperContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self):
-            return self.getTypedRuleContext(CbalcParser.ExprContext,0)
+            return self.getTypedRuleContext(CFlatParser.ExprContext,0)
 
         def NOT(self):
-            return self.getToken(CbalcParser.NOT, 0)
+            return self.getToken(CFlatParser.NOT, 0)
         def SUB(self):
-            return self.getToken(CbalcParser.SUB, 0)
+            return self.getToken(CFlatParser.SUB, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitSingleOper" ):
@@ -652,18 +652,18 @@ class CbalcParser ( Parser ):
 
     class LogicOperAndContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
         def AND2(self):
-            return self.getToken(CbalcParser.AND2, 0)
+            return self.getToken(CFlatParser.AND2, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitLogicOperAnd" ):
@@ -674,12 +674,12 @@ class CbalcParser ( Parser ):
 
     class IdContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def ID(self):
-            return self.getToken(CbalcParser.ID, 0)
+            return self.getToken(CFlatParser.ID, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitId" ):
@@ -690,21 +690,21 @@ class CbalcParser ( Parser ):
 
     class ShiftOperContext(ExprContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a CbalcParser.ExprContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a CFlatParser.ExprContext
             super().__init__(parser)
             self.op = None # Token
             self.copyFrom(ctx)
 
         def expr(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CbalcParser.ExprContext)
+                return self.getTypedRuleContexts(CFlatParser.ExprContext)
             else:
-                return self.getTypedRuleContext(CbalcParser.ExprContext,i)
+                return self.getTypedRuleContext(CFlatParser.ExprContext,i)
 
         def SHL(self):
-            return self.getToken(CbalcParser.SHL, 0)
+            return self.getToken(CFlatParser.SHL, 0)
         def SHR(self):
-            return self.getToken(CbalcParser.SHR, 0)
+            return self.getToken(CFlatParser.SHR, 0)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitShiftOper" ):
@@ -717,7 +717,7 @@ class CbalcParser ( Parser ):
     def expr(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = CbalcParser.ExprContext(self, self._ctx, _parentState)
+        localctx = CFlatParser.ExprContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 10
         self.enterRecursionRule(localctx, 10, self.RULE_expr, _p)
@@ -726,52 +726,52 @@ class CbalcParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 52
             token = self._input.LA(1)
-            if token in [CbalcParser.NOT, CbalcParser.SUB]:
-                localctx = CbalcParser.SingleOperContext(self, localctx)
+            if token in [CFlatParser.NOT, CFlatParser.SUB]:
+                localctx = CFlatParser.SingleOperContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
 
                 self.state = 43
                 localctx.op = self._input.LT(1)
                 _la = self._input.LA(1)
-                if not(_la==CbalcParser.NOT or _la==CbalcParser.SUB):
+                if not(_la==CFlatParser.NOT or _la==CFlatParser.SUB):
                     localctx.op = self._errHandler.recoverInline(self)
                 else:
                     self.consume()
                 self.state = 44
                 self.expr(13)
 
-            elif token in [CbalcParser.NUMBER]:
-                localctx = CbalcParser.NumberContext(self, localctx)
+            elif token in [CFlatParser.NUMBER]:
+                localctx = CFlatParser.NumberContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 45
-                self.match(CbalcParser.NUMBER)
+                self.match(CFlatParser.NUMBER)
 
-            elif token in [CbalcParser.ID]:
-                localctx = CbalcParser.IdContext(self, localctx)
+            elif token in [CFlatParser.ID]:
+                localctx = CFlatParser.IdContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 46
-                self.match(CbalcParser.ID)
+                self.match(CFlatParser.ID)
 
-            elif token in [CbalcParser.STRING]:
-                localctx = CbalcParser.StringContext(self, localctx)
+            elif token in [CFlatParser.STRING]:
+                localctx = CFlatParser.StringContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 47
-                self.match(CbalcParser.STRING)
+                self.match(CFlatParser.STRING)
 
-            elif token in [CbalcParser.T__4]:
-                localctx = CbalcParser.ParensContext(self, localctx)
+            elif token in [CFlatParser.T__4]:
+                localctx = CFlatParser.ParensContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 48
-                self.match(CbalcParser.T__4)
+                self.match(CFlatParser.T__4)
                 self.state = 49
                 self.expr(0)
                 self.state = 50
-                self.match(CbalcParser.T__3)
+                self.match(CFlatParser.T__3)
 
             else:
                 raise NoViableAltException(self)
@@ -789,7 +789,7 @@ class CbalcParser ( Parser ):
                     self._errHandler.sync(self);
                     la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
                     if la_ == 1:
-                        localctx = CbalcParser.MulDivContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.MulDivContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 54
                         if not self.precpred(self._ctx, 12):
@@ -798,7 +798,7 @@ class CbalcParser ( Parser ):
                         self.state = 55
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CbalcParser.MUL) | (1 << CbalcParser.DIV) | (1 << CbalcParser.AMP))) != 0)):
+                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CFlatParser.MUL) | (1 << CFlatParser.DIV) | (1 << CFlatParser.AMP))) != 0)):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self.consume()
@@ -807,7 +807,7 @@ class CbalcParser ( Parser ):
                         pass
 
                     elif la_ == 2:
-                        localctx = CbalcParser.AddSubContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.AddSubContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 57
                         if not self.precpred(self._ctx, 11):
@@ -816,7 +816,7 @@ class CbalcParser ( Parser ):
                         self.state = 58
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==CbalcParser.ADD or _la==CbalcParser.SUB):
+                        if not(_la==CFlatParser.ADD or _la==CFlatParser.SUB):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self.consume()
@@ -825,7 +825,7 @@ class CbalcParser ( Parser ):
                         pass
 
                     elif la_ == 3:
-                        localctx = CbalcParser.ShiftOperContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.ShiftOperContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 60
                         if not self.precpred(self._ctx, 10):
@@ -834,7 +834,7 @@ class CbalcParser ( Parser ):
                         self.state = 61
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==CbalcParser.SHL or _la==CbalcParser.SHR):
+                        if not(_la==CFlatParser.SHL or _la==CFlatParser.SHR):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self.consume()
@@ -843,7 +843,7 @@ class CbalcParser ( Parser ):
                         pass
 
                     elif la_ == 4:
-                        localctx = CbalcParser.CompOperContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.CompOperContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 63
                         if not self.precpred(self._ctx, 9):
@@ -852,7 +852,7 @@ class CbalcParser ( Parser ):
                         self.state = 64
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CbalcParser.GRT) | (1 << CbalcParser.GRE) | (1 << CbalcParser.LES) | (1 << CbalcParser.LEE))) != 0)):
+                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CFlatParser.GRT) | (1 << CFlatParser.GRE) | (1 << CFlatParser.LES) | (1 << CFlatParser.LEE))) != 0)):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self.consume()
@@ -861,7 +861,7 @@ class CbalcParser ( Parser ):
                         pass
 
                     elif la_ == 5:
-                        localctx = CbalcParser.CompOper2Context(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.CompOper2Context(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 66
                         if not self.precpred(self._ctx, 8):
@@ -870,7 +870,7 @@ class CbalcParser ( Parser ):
                         self.state = 67
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not(_la==CbalcParser.EQL or _la==CbalcParser.NEQ):
+                        if not(_la==CFlatParser.EQL or _la==CFlatParser.NEQ):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self.consume()
@@ -879,7 +879,7 @@ class CbalcParser ( Parser ):
                         pass
 
                     elif la_ == 6:
-                        localctx = CbalcParser.BitOperContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.BitOperContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 69
                         if not self.precpred(self._ctx, 7):
@@ -888,7 +888,7 @@ class CbalcParser ( Parser ):
                         self.state = 70
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
-                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CbalcParser.AND) | (1 << CbalcParser.OR) | (1 << CbalcParser.XOR))) != 0)):
+                        if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << CFlatParser.AND) | (1 << CFlatParser.OR) | (1 << CFlatParser.XOR))) != 0)):
                             localctx.op = self._errHandler.recoverInline(self)
                         else:
                             self.consume()
@@ -897,27 +897,27 @@ class CbalcParser ( Parser ):
                         pass
 
                     elif la_ == 7:
-                        localctx = CbalcParser.LogicOperAndContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.LogicOperAndContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 72
                         if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
                         self.state = 73
-                        self.match(CbalcParser.AND2)
+                        self.match(CFlatParser.AND2)
                         self.state = 74
                         self.expr(7)
                         pass
 
                     elif la_ == 8:
-                        localctx = CbalcParser.LogicOperOrContext(self, CbalcParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = CFlatParser.LogicOperOrContext(self, CFlatParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 75
                         if not self.precpred(self._ctx, 5):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
                         self.state = 76
-                        self.match(CbalcParser.OR2)
+                        self.match(CFlatParser.OR2)
                         self.state = 77
                         self.expr(6)
                         pass

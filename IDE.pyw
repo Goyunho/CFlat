@@ -1,3 +1,4 @@
+# 제작 : 8조 고윤호, 성연복
 # modules
 import os
 import sys
@@ -10,7 +11,7 @@ class IDE(Tk):
     def __init__(self):
         super().__init__()
         try:
-            os.chdir("source/Cbalc")
+            os.chdir("source/CFlat")
         except:
             pass
         self.setUI()
@@ -45,20 +46,20 @@ class IDE(Tk):
         source = self.source_te.get('1.0', END)
         with open('.source.cbc', 'w') as file :
             file.write(source)
-        result = os.popen("python pygrun -t Cbalc prog " + file.name).read()
+        result = os.popen("python pygrun -t CFlat prog " + file.name).read()
         self.setResult_te(self.result_te, result)
 
     def event_tree_G(self, source):
         source = self.source_te.get('1.0', END)
         with open('.source.cbc', 'w') as file :
             file.write(source)
-        result = os.popen("python pygrun -g -t Cbalc prog " + file.name).read()
+        result = os.popen("python pygrun -g -t CFlat prog " + file.name).read()
 
     def event_build(self, source):
         source = self.source_te.get('1.0', END)
         with open('.source.cbc', 'w') as file :
             file.write(source)
-        result = os.popen("python Cbalc.py " + file.name).read()
+        result = os.popen("python CFlat.py " + file.name).read()
         self.setResult_te(self.result_te, result)
 
     # functions
@@ -71,7 +72,7 @@ class IDE(Tk):
 
 if __name__ == '__main__':
     root = IDE()
-    root.title("Cbalc IDE")
+    root.title("CFlat IDE - 8조 고윤호, 성연복")
     root.mainloop()
 
     
